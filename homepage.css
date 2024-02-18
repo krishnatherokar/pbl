@@ -39,15 +39,16 @@ font-family: "VT323"
 
 #topnav1 {
     top: 0;
+    z-index: 3;
 }
 
 #botnav1 {
     bottom: 0;
+    z-index: 1;
 }
 
 #topnav1, #botnav1 {
     position: fixed;
-    z-index: 1;
     left: 0;
     right: 0;
     padding: 10px 20px;
@@ -65,9 +66,35 @@ font-family: "VT323"
     float: right;
 }
 
-#menu1 {
+#menu1, #cross1 {
     float: left;
     margin: 4px 10px 0 0;
+}
+
+#sidenav {
+    z-index: 2;
+    position: fixed;
+    backdrop-filter: blur(4px);
+    display: flex;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#sidediv {
+    margin: 0 0 0 -50vw;
+    transition: .6s all;
+    width: 50vw;
+    max-width: 400px;
+    height: 100vh;
+    background-color: var(--dark1);
+    display: none;
+}
+
+#dummydiv {
+    height: 100vh;
+    width: 100%;
 }
 
 #mainHold {
