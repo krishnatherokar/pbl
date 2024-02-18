@@ -9,18 +9,35 @@
         <link href="homepage.css" rel="stylesheet"> 
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     </head>
     <body>
         <section id="topnav1">
-            <section class="text1">SmartMode</section><section class="text2">A general utility tool</section>
+            <section id="menu1">
+            </section>
+            <span class="text1">SmartMode</span>
+            <section id="mode1">
+            </section>
         </section>
 
         <section id="mainHold">
-            <form>
-                <input id="web1" type="text" placeholder="Enter a website" autocomplete="off">
+            <form id="form1">
+                <input id="web1" type="text" placeholder="Enter a website" autocomplete="off" required>
+                <button id="subBtn" type="submit">Add</button>
             </form>
+            
+            <section id="webList">
+                <span>List of websites added:</span><br>
+                <section id="listHold"></section>
+            </section>
+
+            <section id="btnHold">
+                <button>Block</button><button>Create New Mode</button>
+            </section>
         </section>
+
+        <section id="botnav1">BottomNav</section>
         
         <script src="homepage.js"></script>
     </body>

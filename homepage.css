@@ -6,6 +6,10 @@ body {
     background-color: var(--dark3);
 }
 
+* {
+    transition: .6s background-color;
+}
+
 /*
 font-family: "VT323"
 */
@@ -13,7 +17,7 @@ font-family: "VT323"
 :root {
     --white1: #fff;
     --white2: #e3e3e3;
-    --dark1: #000;
+    --dark1: #0a0908;
     --dark2: #a7a7a7;
     --dark3: #161616;
     --dark4: #292929;
@@ -34,44 +38,61 @@ font-family: "VT323"
 }
 
 #topnav1 {
-    position: fixed;
     top: 0;
+}
+
+#botnav1 {
+    bottom: 0;
+}
+
+#topnav1, #botnav1 {
+    position: fixed;
     z-index: 1;
-    width: 100%;
-    padding: 10px;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
     background-color: var(--dark1);
+/*  
     box-shadow: 0 0 10px var(--dark4);
-    display: flex;
+*/
 }
 
-#topnav1 .text1 {
-    margin: 14px;
+#topnav section {
+    display: inline;
 }
 
-#topnav1 .text2 {
-    margin: 20px;
+#mode1 {
+    float: right;
+}
+
+#menu1 {
+    float: left;
+    margin: 4px 10px 0 0;
 }
 
 #mainHold {
     text-align: center;
-    margin: 100px 20px 0 20px;
+    margin: 100px 20px 200px 20px;
 }
 
 #web1 {
     font-family: "VT323";
-    font-size: 18px;
+    font-size: 20px;
     width: 100%;
-    max-width: 400px;
     color: var(--white2);
     background-color: var(--dark1);
-    border-radius: 4px;
     padding: 10px;
 }
 
-input {
+input, button {
     font-family: "DM Sans", calibri;
     border: 0;
     outline: 0;
+    border-radius: 4px;
+}
+
+button {
+    cursor: pointer;
 }
 
 input:focus {
@@ -86,6 +107,52 @@ input::placeholder {
     font-size: 24px;
 }
 
-.text2 {
+#subBtn, #btnHold button {
+    padding: 10px 30px;
+    color: var(--white1);
+    font-size: 16px;
+}
+
+#subBtn {
+    background-color: var(--dark4);
+    margin: 0 0 0 10px;
+}
+
+#form1 {
+    display: flex;
+    justify-content: space-around;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#btnHold {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+#btnHold button {
+    background-color: var(--dark4);
+    margin: 0 10px;
+}
+
+#webList {
+    text-align: left;
+    font-size: 16px;
+    padding: 20px;
+    background-color: var(--dark1);
+    border-radius: 4px;
+    max-width: 460px;
+    margin: 20px auto;
+}
+
+#webList span {
     color: var(--white2);
+}
+
+#listHold {
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    font-family: "VT323";
 }
