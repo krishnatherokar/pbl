@@ -96,7 +96,7 @@ font-family: "VT323"
 
 #detailsHold {
     max-width: 500px;
-    margin: 100px auto;
+    margin: 26vh auto;
     padding: 20px;
     background-color: var(--dark1);
     border-radius: 4px;
@@ -266,6 +266,8 @@ input::placeholder {
 #webList2 {
     background-color: var(--dark4);
     font-family: "VT323";
+    max-height: 100px;
+    overflow-y: scroll;
 }
 
 #webList span {

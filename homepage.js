@@ -32,7 +32,7 @@ cross1.innerHTML = svgCross;
 
 modeNameArr = ['DummyMode1', 'DummyMode2', 'DummyMode3']
 
-webListArr = ['example1.com', 'example2.com']
+webListArr = ['example1.com', 'example2.com', 'example1.com', 'example2.com', 'example1.com', 'example2.com', 'example1.com', 'example2.com', 'example1.com', 'example2.com']
 
 function webListF(num){
     tempList1 = '';
