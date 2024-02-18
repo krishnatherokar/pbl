@@ -62,7 +62,7 @@ function exitNav(){
     $('#menu1').show();
     $('#sidenav').fadeOut();
     $('#sidediv').fadeOut();
-    sidediv.style.margin = '0 0 0 -50vw';
+    sidediv.style.margin = '0 0 0 -100vw';
 }
 
 exitNav()
