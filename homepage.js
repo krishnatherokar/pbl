@@ -2,7 +2,7 @@ function getId(id){
     return document.getElementById(id)
 }
 
-all1 = document.querySelectorAll('*');
+cssRoot = document.querySelector(':root');
 menu1 = getId('menu1');
 mode1 = getId('mode1');
 cross1 = getId('cross1');
@@ -70,9 +70,9 @@ getId("form1").addEventListener("submit", event=>{
 
 mode1.addEventListener("click", modeF)
 
-arrClr = ['white1', 'white2', 'dark1', 'dark2', 'dark3', 'dark4'];
-arrHex1 = ['fff', 'e3e3e3', '0a0908', 'a7a7a7', '161616', '292929'];
-arrHex2 = ['0a0908', '292929', 'fff', 'a7a7a7', 'f1f1f1', 'fafafa'];
+arrClr = ['transP1', 'white1', 'white2', 'dark1', 'dark2', 'dark3', 'dark4'];
+arrHex1 = ['ededed30', 'fff', 'e3e3e3', '0a0908', 'a7a7a7', '161616', '292929'];
+arrHex2 = ['3d3d3d30', '0a0908', '292929', 'fff', 'a7a7a7', 'f1f1f1', 'fafafa'];
 
 function modeF(){
     if (modeStat==1){
@@ -84,10 +84,8 @@ function modeF(){
         mode1.innerHTML=svgSun;
         modeStat=1;
     }
-    for (i=0; i<all1.length; i++){
-        for (j=0; j<arrClr.length; j++){
-            all1[i].style.setProperty('--'+arrClr[j], '#'+arrHex[j]);
-        }
+    for (j=0; j<arrClr.length; j++){
+        cssRoot.style.setProperty('--'+arrClr[j], '#'+arrHex[j]);
     }
 }
 
@@ -105,6 +103,11 @@ function exitNav(){
     $('#sidenav').fadeOut();
     $('#sidediv').fadeOut();
     sidediv.style.margin = '0 0 0 -100vw';
+}
+
+function blockWeb1(){
+    getId('webList3').value = getId('listHold').innerHTML;
+    getId('form2Btn').click();
 }
 
 exitNav();

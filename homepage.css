@@ -24,6 +24,8 @@ font-family: "VT323"
 
     --circle0: #9e9e9e;
     --circle1: #00ff37;
+
+    --transP1: #ededed30;
 }
 
 ::-webkit-scrollbar {
@@ -37,6 +39,10 @@ font-family: "VT323"
 }
     
 ::-webkit-scrollbar-button {
+    display: none;
+}
+
+.noneD {
     display: none;
 }
 
@@ -86,6 +92,7 @@ font-family: "VT323"
     z-index: 4;
     padding: 20px;
     backdrop-filter: blur(4px);
+    background-color: var(--transP1);
 }
 
 #closeDiv1 {
@@ -96,11 +103,10 @@ font-family: "VT323"
 
 #detailsHold {
     max-width: 500px;
-    margin: 26vh auto;
+    margin: 20vh auto;
     padding: 20px;
     background-color: var(--dark1);
     border-radius: 4px;
-    z-index: 6;
 }
 
 .fixedDiv {
@@ -139,6 +145,7 @@ font-family: "VT323"
     z-index: 2;
     display: flex;
     backdrop-filter: blur(4px);
+    background-color: var(--transP1);
 }
 
 @media only screen and (min-width: 600px){
@@ -179,8 +186,7 @@ font-family: "VT323"
 }
 
 #web1 {
-    font-family: "VT323";
-    font-size: 20px;
+    font-size: 18px;
     width: 100%;
     color: var(--white2);
     background-color: var(--dark1);
@@ -261,11 +267,12 @@ input::placeholder {
 
 #webList {
     background-color: var(--dark1);
+    max-height: 200px;
+    overflow-y: scroll;
 }
 
 #webList2 {
     background-color: var(--dark4);
-    font-family: "VT323";
     max-height: 100px;
     overflow-y: scroll;
 }
@@ -276,6 +283,5 @@ input::placeholder {
 
 #listHold {
     margin: 10px 0 0 0;
-    font-size: 20px;
-    font-family: "VT323";
+    font-size: 18px;
 }

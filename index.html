@@ -8,7 +8,6 @@
 
         <link href="homepage.css" rel="stylesheet"> 
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     </head>
@@ -36,8 +35,14 @@
                 </section>
             </section>
 
+            <!--Hidden form to submit the list added-->
+            <form action="/block" id="form2" class="noneD">
+                <input id="webList3" name="webList3">
+                <button id="form2Btn" type="submit"></button>
+            </form>
+
             <section id="btnHold" class="flex">
-                <button>Block</button><button>Create New Mode</button>
+                <button onclick="blockWeb1()">Block</button><button>Create New Mode</button>
             </section>
         </section>
 
