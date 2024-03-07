@@ -26,6 +26,8 @@ font-family: "VT323"
     --circle1: #00ff37;
 
     --transP1: #ededed30;
+
+    --red1: #ff0000;
 }
 
 ::-webkit-scrollbar {
@@ -44,6 +46,14 @@ font-family: "VT323"
 
 .noneD {
     display: none;
+}
+
+.redclr {
+    color: var(--red1);
+}
+
+.white2clr {
+    color: var(--white2);
 }
 
 #topnav1 {
@@ -81,7 +91,7 @@ font-family: "VT323"
     padding: 10px;
     color: var(--white1);
     background-color: var(--dark4);
-    margin: 7px 0 0 0;
+    margin: 7px 0;
 }
 
 #modeBtnHold {
@@ -277,8 +287,8 @@ input::placeholder {
     overflow-y: scroll;
 }
 
-#webList span {
-    color: var(--white2);
+#webList .redclr {
+    float: right;
 }
 
 #listHold {

@@ -26,23 +26,21 @@
             </form>
             
             <section id="webList">
-                <span>List of websites added:</span><br>
-                <section id="listHold">
-                    example1.com<br>
-                    example2.com<br>
-                    example1.com<br>
-                    example2.com<br>
-                </section>
+                <span class="white2clr">List of websites added:</span>
+                <span class="redclr" onclick="clearForm()">Clear</span><br>
+                <section id="listHold"></section>
             </section>
 
             <!--Hidden form to submit the list added-->
-            <form action="/block" id="form2" class="noneD">
+            <form action="/block" id="form2" class="noneD" method="post">
                 <input id="webList3" name="webList3">
+                <input id="listID" name="listID">
+                <input id="listFN" name="listFN">
                 <button id="form2Btn" type="submit"></button>
             </form>
 
             <section id="btnHold" class="flex">
-                <button onclick="blockWeb1()">Block</button><button>Create New Mode</button>
+                <button onclick="blockWeb1()">Block</button><button onclick="createMode1()">Create New Mode</button>
             </section>
         </section>
 
@@ -62,7 +60,7 @@
 
         <section id="botnav1">
             <section id="modeList"></section>
-            <section id="modeBtnHold"><button>View all</button></section>
+            <section id="modeBtnHold"><button onclick="resetAll()">Reset</button></section>
         </section>
         
         <script src="homepage.js"></script>

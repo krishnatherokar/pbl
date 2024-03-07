@@ -30,33 +30,68 @@ menu1.innerHTML = svgMenu;
 mode1.innerHTML = svgSun;
 cross1.innerHTML = svgCross;
 
-modeNameArr = ['DummyMode1', 'DummyMode2', 'DummyMode3']
+arrMode = [['DummyMode1', 1]];
 
-webListArr = ['example1.com', 'example2.com', 'example1.com', 'example2.com', 'example1.com', 'example2.com', 'example1.com', 'example2.com', 'example1.com', 'example2.com']
+webListArr = ['example1.com<br>example2.com']
 
 function webListF(num){
     tempList1 = '';
-    for (i=0; i<webListArr.length; i++){
-        tempList1 += webListArr[i]+'<br>'
-    }
+    tempList1 += webListArr[num];
     return tempList1
 }
 
+function createMode1(){
+    arrMode.push([prompt('Enter mode name:'), 1]);
+    webListArr.push(getId('listHold').innerHTML);
+    getId('listHold').innerHTML='';
+    showModes();
+    webListF();
+}
+
+function deleteMode1(num){
+    arrMode.splice(num ,1);
+    webListArr.splice(num, 1);
+    hideDetails();
+}
+
+function switchB(num, stat){
+    if (stat==0){
+        arrMode[num][1]=1;
+    } else {
+        arrMode[num][1]=0;
+    }
+    showDetails1(num);
+    showModes();
+}
+
+function clearForm(){
+    getId('listHold').innerHTML='';
+}
+
+function resetAll(){
+    arrMode = [];
+    webListArr = [];
+    showModes();
+}
+
 function showDetails1(num){
+    butArr = ['Activate', 'Deactivate'];
+    activeSt = arrMode[num][1];
     $('#modeDetails').fadeIn();
-    detailsBtn.innerHTML = `<button>Activate</button>
-    <button>Delete</button>`;
-    modeName.innerHTML = modeNameArr[num];
+    detailsBtn.innerHTML = `<button onclick="switchB(${num}, ${activeSt})">${butArr[activeSt]}</button>
+    <button onclick="deleteMode1(${num})">Delete</button>`;
+    modeName.innerHTML = arrMode[num][0];
     webList2.innerHTML = webListF(num);
     closeDiv1.innerHTML = svgCross2;
 }
 
 function hideDetails(){
     $('#modeDetails').hide();
+    showModes();
 }
 
-arrMode = [['DummyMode1', 1], ['DummyMode2', 0], ['DummyMode3', 0]];
 function showModes(){
+    modeList.innerHTML='';
     for (i=0; i<arrMode.length; i++){
         modeList.innerHTML+=`<section onclick="showDetails1(${i})">${arrMode[i][0]}${svgDot(arrMode[i][1])}</section>`
     }
@@ -105,8 +140,10 @@ function exitNav(){
     sidediv.style.margin = '0 0 0 -100vw';
 }
 
-function blockWeb1(){
-    getId('webList3').value = getId('listHold').innerHTML;
+function blockWeb1(val, id, fn){
+    if (val==0){
+        getId('webList3').value = getId('listHold').innerHTML;
+    }
     getId('form2Btn').click();
 }
 
