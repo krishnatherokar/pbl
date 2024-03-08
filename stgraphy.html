@@ -328,6 +328,10 @@ label.selectF input[type="file"] {
     color: var(--dark2);
 }
 
+#details1 span {
+    color: var(--white1);
+}
+
 </style>
 
     </head>
@@ -439,7 +443,7 @@ getId("fileIP").onchange = evt => {
         size1 = unit1==' KB'?file.size/1024:file.size/1048576;
         numTemp = String(size1).indexOf('.');
         getId("img1").src = URL.createObjectURL(file)
-        getId("details1").innerHTML+=`Name: ${file.name}<br>Modification date:<br>${file.lastModifiedDate}<br>Size: ${String(size1).slice(0, numTemp+3)+unit1}`
+        getId("details1").innerHTML+=`<span>Name: </span>${file.name}<br><span>Modification date: </span>${file.lastModifiedDate}<br><span>Size: </span>${String(size1).slice(0, numTemp+3)+unit1}`
     }
 }
 

@@ -1,7 +1,7 @@
 <html>
     <head>
         
-        <title>SmartMode</title>
+        <title>Text Encrypter</title>
 
         <meta charset=utf-8>
         <meta name=viewport content="width=device-width, initial-scale=1.0">
@@ -165,7 +165,7 @@ font-family: "VT323"
 
 #menu1, #cross1 {
     float: left;
-    margin: 4px 10px 0 0;
+    margin: 0 10px 0 0;
 }
 
 #sidenav {
@@ -387,7 +387,7 @@ function exitNav(){
     sidediv.style.margin = '0 0 0 -100vw';
 }
 
-linksArr = [['/', 'Home'], ['/blocker', 'Website Blocker']]
+linksArr = [['/', 'Home'], ['/blocker', 'Website Blocker'], ['/STencrypter', 'Steganography']]
 
 for (i=0; i<linksArr.length; i++){
     getId("sidenavLinks").innerHTML += `<span onclick="window.open('${linksArr[i][0]}', '_self')">${linksArr[i][1]}</span>`;

@@ -151,7 +151,6 @@ font-family: "VT323"
     padding: 10px;
     background-color: var(--dark3);
     border-radius: 4px;
-    border: 2px solid var(--transP1);
     cursor: pointer;
 }
 
@@ -315,7 +314,8 @@ input::placeholder {
     padding: 10px 30px;
     color: var(--white1);
     font-size: 16px;
-    background-color: var(--dark4);
+    background-color: transparent;
+    border: 2px solid var(--white2);
     margin: 0 0 0 10px;
 }
 
@@ -630,7 +630,7 @@ mode1.addEventListener("click", modeF)
 
 arrClr = ['transP1', 'white1', 'white2', 'dark1', 'dark2', 'dark3', 'dark4'];
 arrHex1 = ['ededed30', 'fff', 'e3e3e3', '0a0908', 'a7a7a7', '1f1f1f', '292929'];
-arrHex2 = ['3d3d3d30', '0a0908', '292929', 'fff', 'a7a7a7', 'e7e7e7', 'f2f2f2'];
+arrHex2 = ['3d3d3d30', '0a0908', '292929', 'fff', 'a7a7a7', 'f1f1f1', 'f2f2f2'];
 
 function modeF(){
     if (modeStat==1){
