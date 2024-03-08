@@ -327,8 +327,7 @@ input::placeholder {
 }
 
 #btnHold {
-    max-width: 500px;
-    margin: 20px auto;
+    margin: 30px 0 10px 0;
 }
 
 #detailsBtn button {
@@ -372,10 +371,14 @@ input::placeholder {
 }
 
 #listHold {
-    margin: 10px 0 0 0;
-    font-size: 18px;
+    margin: 20px 0 0 0;
+    font-size: 16px;
+    color: var(--dark2);
+    padding: 10px;
     max-height: 200px;
     overflow-y: scroll;
+    border-radius: 4px;
+    border: 2px solid var(--transP1);
 }
 
 </style>
@@ -399,6 +402,9 @@ input::placeholder {
                 <span class="white2clr">List of websites added:</span>
                 <span class="redclr" onclick="clearForm()">Clear</span><br>
                 <section id="listHold"></section>
+                <section id="btnHold" class="flex">
+                    <button class="redbtn" onclick="blockWeb1()">Block</button><button class="bluebtn" onclick="createMode1()">Create New Mode</button>
+                </section>
             </section>
 
             <!--Hidden form to submit the list added-->
@@ -409,9 +415,6 @@ input::placeholder {
                 <button id="form2Btn" type="submit"></button>
             </form>
 
-            <section id="btnHold" class="flex">
-                <button class="redbtn" onclick="blockWeb1()">Block</button><button class="bluebtn" onclick="createMode1()">Create New Mode</button>
-            </section>
         </section>
 
         <section id="modeDetails" class="fixedDiv">
