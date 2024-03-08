@@ -1,7 +1,7 @@
 <html>
     <head>
         
-        <title>SmartMode</title>
+        <title>Website Blocking</title>
 
         <meta charset=utf-8>
         <meta name=viewport content="width=device-width, initial-scale=1.0">
@@ -124,7 +124,7 @@ font-family: "VT323"
 }
 
 .text1 {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 #topnav1 {
@@ -219,7 +219,7 @@ font-family: "VT323"
 
 #menu1, #cross1 {
     float: left;
-    margin: 4px 10px 0 0;
+    margin: 0 10px 0 0;
 }
 
 #sidenav {
@@ -381,10 +381,33 @@ input::placeholder {
     border: 2px solid var(--transP1);
 }
 
+#blockA {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    margin: -200px 0 0 0;
+    transition: 1s all;
+    z-index: 5;
+}
+
+#blockChild {
+    margin: 0 auto;
+    background-color: var(--dark1);
+    border-radius: 6px;
+    max-width: 200px;
+}
+
+#alertH {
+    padding: 20px;
+    border-radius: 6px;
+}
+
 </style>
 
     </head>
     <body>
+        <section id="blockA"><section id="blockChild"><section id="alertH"></section></section></section>
         <section id="topnav1">
             <section id="menu1" onclick="sidenavF()"></section>
             <section id="cross1" onclick="exitNav()"></section>
@@ -403,15 +426,15 @@ input::placeholder {
                 <span class="redclr" onclick="clearForm()">Clear</span><br>
                 <section id="listHold"></section>
                 <section id="btnHold" class="flex">
-                    <button class="redbtn" onclick="blockWeb1()">Block</button><button class="bluebtn" onclick="createMode1()">Create New Mode</button>
+                    <button class="redbtn" onclick="blockWeb1('listHold', 'NaN', 'B')">Block</button><button class="bluebtn" onclick="createMode1()">Create New Mode</button>
                 </section>
             </section>
 
             <!--Hidden form to submit the list added-->
             <form action="/block" id="form2" class="noneD" method="post">
-                <input id="webList3" name="webList3">
-                <input id="listID" name="listID">
-                <input id="listFN" name="listFN">
+                <input id="webList3" name="webList3" required>
+                <input id="listID" name="listID" required>
+                <input id="action1" name="action1" required>
                 <button id="form2Btn" type="submit"></button>
             </form>
 
@@ -477,43 +500,80 @@ menu1.innerHTML = svgMenu;
 mode1.innerHTML = svgSun;
 cross1.innerHTML = svgCross;
 
-arrMode = [['Mode1', 0]];
+modeNum = Number(localStorage.getItem("modeNum"));
 
-webListArr = ['examplewebsite.com']
+if(modeNum == null || modeNum == undefined || modeNum == 0){
+    localStorage.setItem("modeNum", 1);
+    localStorage.setItem('mode1', JSON.stringify(['Mode1', 0, 'examplewebsite.com<br>']))
+    modeNum = 1;
+}
+
+arrMode = [];
+
+function getArr1(){
+    arrMode = []
+    count1=localStorage.getItem("modeNum")
+    for (i=0; i<count1; i++){
+        arrMode.push(JSON.parse(localStorage.getItem(`mode${i+1}`)))
+    }
+}
+
+getArr1();
 
 function webListF(num){
     tempList1 = '';
-    tempList1 += webListArr[num];
+    tempList1 += arrMode[num][2];
     return tempList1
 }
 
 function createMode1(){
     val2 = getId('listHold').innerHTML;
     if (val2 != ''){
-        arrMode.push([prompt('Enter mode name:'), 0]);
-        webListArr.push(val2);
+        modeNum= Number(localStorage.getItem('modeNum'))+1;
+        localStorage.setItem(`mode${modeNum}`, JSON.stringify([prompt('Enter mode name:'), 0, val2]));
+        localStorage.setItem("modeNum", modeNum);
         getId('listHold').innerHTML='';
+        getArr1();
         showModes();
-        webListF();
     } else {
         alert('Enter a website first')
     }
 }
 
 function deleteMode1(num){
-    arrMode.splice(num ,1);
-    webListArr.splice(num, 1);
+    modeNum = Number(localStorage.getItem("modeNum"));
+    num3=num+1;
+    tempModeAc = Number(JSON.parse(localStorage.getItem('mode'+num3))[1]);
+    localStorage.removeItem("mode"+num3);
+    localStorage.setItem("modeNum", modeNum-1);
+    for(i = num3+1; i <= modeNum; i++){
+        delMode1 = localStorage.getItem("mode"+i);
+        delNum1 = i-1;
+        localStorage.setItem("mode"+delNum1, delMode1);
+        localStorage.removeItem("mode"+i)
+    }
+    getArr1();
+    showModes();
     hideDetails();
+    if(tempModeAc==1){blockWeb1('webList2', num, 'UB')}
 }
 
 function switchB(num, stat){
+    num2 = num+1;
+    modeTemp = JSON.parse(localStorage.getItem('mode'+num2));
     if (stat==0){
-        arrMode[num][1]=1;
+        localStorage.setItem('mode'+num2, JSON.stringify([modeTemp[0], 1, modeTemp[2]]))
     } else {
-        arrMode[num][1]=0;
+        localStorage.setItem('mode'+num2, JSON.stringify([modeTemp[0], 0, modeTemp[2]]))
     }
+    getArr1();
     showDetails1(num);
     showModes();
+    if(stat==0){
+        blockWeb1('webList2', num, 'B');
+    } else {
+        blockWeb1('webList2', num, 'UB');
+    }
 }
 
 function clearForm(){
@@ -521,9 +581,14 @@ function clearForm(){
 }
 
 function resetAll(){
-    arrMode = [];
-    webListArr = [];
+    for(i=1; i<=modeNum; i++){
+        localStorage.removeItem('mode'+i)
+    }
+    localStorage.setItem('modeNum', 0);
+    arrMode=[];
     showModes();
+    getId('listHold').innerHTML = 'RESET'
+    blockWeb1('listHold', 'NaN', 'NaN');
 }
 
 function showDetails1(num){
@@ -598,14 +663,35 @@ function exitNav(){
     sidediv.style.margin = '0 0 0 -100vw';
 }
 
-function blockWeb1(val, id, fn){
-    if (val==0){
-        getId('webList3').value = getId('listHold').innerHTML;
+time1 = setTimeout(() => {}, 0);
+
+function blockWeb1(list, id, action){
+    if(getId(list).innerHTML==''){
+        alert('Enter a website first')
+    } else {
+        clearTimeout(time1)
+        getId('blockA').style.setProperty('margin', '0');
+        time1 = setTimeout(() => {
+            getId('blockA').style.setProperty('margin', '-200px 0 0 0');
+        }, 3000);
+        if(action=='B'){
+            getId('alertH').innerHTML = "Websites Blocked";
+            getId('alertH').style.setProperty('border', '2px solid var(--red1)');
+            getId('alertH').style.setProperty('background-color', 'var(--red2)');
+        } else {
+            getId('alertH').innerHTML = "Websites Unblocked";
+            getId('alertH').style.setProperty('border', '2px solid var(--green1)');
+            getId('alertH').style.setProperty('background-color', 'var(--green2)');
+        }
+        getId('webList3').value = getId(list).innerHTML;
+        getId('listHold').innerHTML='';
+        getId('listID').value=id;
+        getId('action1').value=action;
+        getId('form2Btn').click();
     }
-    getId('form2Btn').click();
 }
 
-linksArr = [['/', 'Home'], ['/encrypter', 'Encryption']]
+linksArr = [['/', 'Home'], ['/encrypter', 'Encryption'], ['/STencrypter', 'Steganography']]
 
 for (i=0; i<linksArr.length; i++){
     getId("sidenavLinks").innerHTML += `<span onclick="window.open('${linksArr[i][0]}', '_self')">${linksArr[i][1]}</span>`;
