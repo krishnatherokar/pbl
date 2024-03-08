@@ -1,7 +1,7 @@
 <html>
     <head>
         
-        <title>SmartMode</title>
+        <title>Image Steganography</title>
 
         <meta charset=utf-8>
         <meta name=viewport content="width=device-width, initial-scale=1.0">
@@ -132,7 +132,7 @@ font-family: "VT323"
 }
 
 .text1 {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 #topnav1 {
@@ -169,7 +169,7 @@ font-family: "VT323"
 
 #menu1, #cross1 {
     float: left;
-    margin: 4px 10px 0 0;
+    margin: 0 10px 0 0;
 }
 
 #sidenav {
@@ -323,6 +323,11 @@ label.selectF input[type="file"] {
     display: none;
 }
 
+#details1 {
+    font-size: 10px;
+    color: var(--dark2);
+}
+
 </style>
 
     </head>
@@ -338,6 +343,7 @@ label.selectF input[type="file"] {
             <section id="imgHold">
                 <img id="img1" src="" onerror=this.src="files/Security-1.jpg">
             </section>
+            <section id="details1"></section>
             <section class="card1">
                 <span class="greenclr">En</span>crypter:<br>
                 <form action="/STencrypt" method="post">
@@ -426,18 +432,24 @@ function modeF(){
 }
 
 getId("fileIP").onchange = evt => {
-  const [file] = getId("fileIP").files
-  if (file) {
-    getId("img1").src = URL.createObjectURL(file)
-  }
+    const [file] = getId("fileIP").files
+    if (file){
+        getId("details1").innerHTML=''
+        unit1 = file.size/1024>1024?' MB':' KB';
+        size1 = unit1==' KB'?file.size/1024:file.size/1048576;
+        numTemp = String(size1).indexOf('.');
+        getId("img1").src = URL.createObjectURL(file)
+        getId("details1").innerHTML+=`Name: ${file.name}<br>Modification date:<br>${file.lastModifiedDate}<br>Size: ${String(size1).slice(0, numTemp+3)+unit1}`
+    }
 }
 
 getId("fileIP2").onchange = evt => {
-  const [file] = getId("fileIP2").files
-  if (file) {
-    getId("img1").src = URL.createObjectURL(file)
-  }
-  getId('pass3').value=prompt('Enter password')
+    const [file] = getId("fileIP2").files;
+    if (file){
+        getId("details1").innerHTML=''
+        getId("img1").src = URL.createObjectURL(file)
+        getId('pass3').value=prompt('Enter password')
+    }
 }
 
 function sidenavF(){
