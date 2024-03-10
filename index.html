@@ -5,11 +5,15 @@
         <meta charset=utf-8>
         <meta name=viewport content="width=device-width, initial-scale=1.0">
 
+        <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
 <style>
 
 :root {
     --white1: #F8F9FA;
+    --white2: #ced4da;
     --dark1: #343A40;
+    --dark2: #737373;
 
     --blue1: #0f4bff;
     --yellow1: #f5ebe0;
@@ -18,7 +22,7 @@
     --back2: #DEE2E6;
     --back3: #edf2f4;
     --back4: #E9ECEF;
-    --back5: #495057;
+    --back5: #BBCBCB;
 }
 
 body {
@@ -28,7 +32,7 @@ body {
     font-size: 16px;
     color: var(--dark1);
 }
-/*
+
 * {
     transition: .6s background-color;
     -webkit-tap-highlight-color: transparent;
@@ -36,7 +40,7 @@ body {
     -ms-user-select: none;
     user-select: none;
 }
-*/
+
 .text1 {
     font-size: 30px;
     color: var(--yellow1);
@@ -61,12 +65,38 @@ body {
 }
 
 .card2 {
-    margin: 60px auto;
+    margin: 70px auto;
     max-width: 500px;
 }
 
 .card2 section {
     margin: 20px 0;
+}
+
+.cardP {
+    max-width: 500px;
+    margin: 60px auto;
+}
+
+.card3 {
+    background-color: var(--white2);
+    color: var(--dark2);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    margin: 10px auto;
+}
+
+.name1 {
+    display: block;
+    color: var(--dark1);
+    font-size: 18px;
+}
+
+.roll1 {
+    float: right;
+    margin: 0 0 10px 10px;
+    color: var(--blue1);
 }
 
 .btn1 {
@@ -126,11 +156,12 @@ body {
 
         <section id="mainSec"></section>
 
-        <section id="sec5" class="sec clr2">
-            <section class="card2">
+        <section id="sec5" class="sec">
+            <section class="cardP">
                 <section class="text3">
-                    Contributers:
-                </section>
+                    Project members:
+                </section><br>
+                <section id="members1"></section>
             </section>
         </section>
 
@@ -139,6 +170,23 @@ body {
 function getId(id){
     return document.getElementById(id)
 }
+
+var app = getId('typeText');
+
+var typewriter = new Typewriter(app, {
+    loop: true
+});
+
+typewriter.typeString('Website blocker')
+    .pauseFor(1000)
+    .deleteAll()
+    .typeString('Text encrypter')
+    .pauseFor(1000)
+    .deleteAll()
+    //.deleteChars(7)
+    .typeString('Steganography')
+    .pauseFor(1000)
+    .start();
 
 arr1 = [
     //['blocker', 'Website blocker:',
@@ -150,7 +198,8 @@ arr1 = [
     //['encrypter', 'Text encrypter',
     ['pbl/encrypter.html', 'Text encrypter',
     ['We can input a simple text to get it\'s encrypted form and also a key to decrypt it.',
-    'Without the key, the encrypted text cannot be decrypted.']
+    'Without the key, the encrypted text cannot be decrypted.',
+    'Added dark & light mode in every tool for more customisation. (Just click the \'sun\' icon at top right corner after clicking \'Open tool\')']
     ],
     //['STencrypter', 'Steganography',
     ['pbl/stgraphy.html', 'Steganography',
@@ -174,6 +223,24 @@ for(i=0; i<arr1.length; i++){
                     <ul>${pTemp}</ul>
                 </section>
             </section>
+        </section>`
+}
+
+arr2 = [
+    ['Krishna Therokar', '12', 'Frontend design & logic'],
+    ['Jashn Wahi', '21', 'Backend logic & file handling'],
+    ['Angad Bhokare', '11', ''],
+    ['Rutuja Patil', '09', ''],
+    ['Prachi Patharvat', '15', ''],
+    ['Pratiksha Waghmare', '16', '']
+];
+
+for(j=0; j<arr2.length; j++){
+    getId('members1').innerHTML += `
+        <section class="card3">
+            <span class="roll1">Roll no: ${arr2[j][1]}</span>
+                <span class="name1">${arr2[j][0]}</span>
+                    ${arr2[j][2]}
         </section>`
 }
 

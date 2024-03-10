@@ -14,11 +14,17 @@ svgMoon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBo
 svgCross = `<svg onclick="exitNav()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`
 svgCross2 = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`
 
-modeStat=1;
 $('#sidenav').hide();
 menu1.innerHTML = svgMenu;
 mode1.innerHTML = svgSun;
 cross1.innerHTML = svgCross;
+
+modeStat = localStorage.getItem("modeStat");
+
+if(modeStat == null || modeStat == undefined){
+    localStorage.setItem("modeStat", 1);
+    modeStat = 1;
+}
 
 mode1.addEventListener("click", modeF)
 
@@ -30,11 +36,26 @@ function modeF(){
     if (modeStat==1){
         arrHex = arrHex2;
         mode1.innerHTML=svgMoon;
+        localStorage.setItem("modeStat", 0);
         modeStat=0;
     } else {
         arrHex = arrHex1;
         mode1.innerHTML=svgSun;
+        localStorage.setItem("modeStat", 1);
         modeStat=1;
+    }
+    for (j=0; j<arrClr.length; j++){
+        cssRoot.style.setProperty('--'+arrClr[j], '#'+arrHex[j]);
+    }
+}
+
+function modeCh(){
+    if (modeStat==1){
+        arrHex = arrHex1;
+        mode1.innerHTML=svgSun;
+    } else {
+        arrHex = arrHex2;
+        mode1.innerHTML=svgMoon;
     }
     for (j=0; j<arrClr.length; j++){
         cssRoot.style.setProperty('--'+arrClr[j], '#'+arrHex[j]);
@@ -56,3 +77,5 @@ function exitNav(){
     $('#sidediv').fadeOut();
     sidediv.style.margin = '0 0 0 -100vw';
 }
+
+modeCh();
