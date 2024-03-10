@@ -13,7 +13,8 @@
     --white1: #F8F9FA;
     --white2: #ced4da;
     --dark1: #343A40;
-    --dark2: #737373;
+    --dark2: #a0a0a0;
+    --dark3: #696969;
 
     --blue1: #0f4bff;
     --yellow1: #f5ebe0;
@@ -64,13 +65,24 @@ body {
     color: var(--white1);
 }
 
+.clr3 {
+    background-color: var(--white1);
+    color: var(--dark3);
+}
+
 .card2 {
     margin: 70px auto;
     max-width: 500px;
+    line-height: 1.4;
 }
 
 .card2 section {
     margin: 20px 0;
+}
+
+.card2 li {
+    margin: 10px 0;
+    color: var(--dark3);
 }
 
 .cardP {
@@ -79,12 +91,13 @@ body {
 }
 
 .card3 {
-    background-color: var(--white2);
+    background-color: var(--white1);
     color: var(--dark2);
     padding: 20px;
     border-radius: 10px;
     max-width: 300px;
-    margin: 10px auto;
+    margin: 14px auto;
+    line-height: 1.4;
 }
 
 .name1 {
@@ -96,6 +109,10 @@ body {
 .roll1 {
     float: right;
     margin: 0 0 10px 10px;
+    color: var(--dark2);
+}
+
+.roll1 span {
     color: var(--blue1);
 }
 
@@ -156,6 +173,13 @@ body {
 
         <section id="mainSec"></section>
 
+        <section class="sec clr3">
+            <section class="card2">
+                Added dark & light mode in every tool for more customisation.<br>
+                Just click the 'sun' icon at top right corner after clicking 'Open tool'.
+            </section>
+        </section>
+
         <section id="sec5" class="sec">
             <section class="cardP">
                 <section class="text3">
@@ -189,23 +213,24 @@ typewriter.typeString('Website blocker')
     .start();
 
 arr1 = [
-    //['blocker', 'Website blocker:',
-    ['pbl/blocker.html', 'Website blocker:',
+    //['blocker', 'Website blocker',
+    ['pbl/blocker.html', 'Website blocker',
     ['This tool is useful to block access to unwanted websites from your computer.',
     'It contains \'modes\' to customize the list of websites you want to block or unblock at a time.',
+    'Generates unique id for each mode.',
     'It stores data in browser cookies so that the modes you create will be saved even if you refresh the website.']
     ],
     //['encrypter', 'Text encrypter',
     ['pbl/encrypter.html', 'Text encrypter',
     ['We can input a simple text to get it\'s encrypted form and also a key to decrypt it.',
-    'Without the key, the encrypted text cannot be decrypted.',
-    'Added dark & light mode in every tool for more customisation. (Just click the \'sun\' icon at top right corner after clicking \'Open tool\')']
+    'Without the key, the encrypted text cannot be decrypted.']
     ],
     //['STencrypter', 'Steganography',
     ['pbl/stgraphy.html', 'Steganography',
     ['With this tool, we can store some text inside an image file.',
     'It will be protected by a password.',
-    'To access the hidden text, you need to select exact file or provide it\'s path and passoword.']
+    'To access the hidden text, you need to select exact file or provide it\'s path and passoword.',
+    'It also shows file details.']
     ]
 ];
 
@@ -229,8 +254,8 @@ for(i=0; i<arr1.length; i++){
 arr2 = [
     ['Krishna Therokar', '12', 'Frontend design & logic'],
     ['Jashn Wahi', '21', 'Backend logic & file handling'],
-    ['Angad Bhokare', '11', ''],
     ['Rutuja Patil', '09', ''],
+    ['Angad Bhokare', '11', ''],
     ['Prachi Patharvat', '15', ''],
     ['Pratiksha Waghmare', '16', '']
 ];
@@ -238,7 +263,7 @@ arr2 = [
 for(j=0; j<arr2.length; j++){
     getId('members1').innerHTML += `
         <section class="card3">
-            <span class="roll1">Roll no: ${arr2[j][1]}</span>
+            <span class="roll1">Roll no: <span>${arr2[j][1]}</span></span>
                 <span class="name1">${arr2[j][0]}</span>
                     ${arr2[j][2]}
         </section>`

@@ -83,7 +83,7 @@ label.selectF input[type="file"] {
             <section id="menu1" onclick="sidenavF()"></section>
             <section id="cross1" onclick="exitNav()"></section>
             <span class="text1">Steganography</span>
-            <section id="mode1"></section>
+            <section id="mode1" title="Toggle Dark/Light Mode"></section>
         </section>
 
         <section id="mainHold">
@@ -152,7 +152,7 @@ getId("fileIPS").onchange = evt => {
     }
 }
 
-linksArr = [['/', 'Home'], ['/blocker', 'Website Blocker'], ['/encrypter', 'Encryption']]
+linksArr = [['index.html', 'Home'], ['blocker.html', 'Website Blocker'], ['encrypter.html', 'Encryption']]
 
 for (i=0; i<linksArr.length; i++){
     getId("sidenavLinks").innerHTML += `<span onclick="window.open('${linksArr[i][0]}', '_self')">${linksArr[i][1]}</span>`;

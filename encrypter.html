@@ -41,7 +41,7 @@
             <section id="menu1" onclick="sidenavF()"></section>
             <section id="cross1" onclick="exitNav()"></section>
             <span class="text1">Text Encryption</span>
-            <section id="mode1"></section>
+            <section id="mode1" title="Toggle Dark/Light Mode"></section>
         </section>
 
         <section id="mainHold">
@@ -78,7 +78,8 @@
 <script src="files/tools.js"></script>
 <script>
 
-linksArr = [['/', 'Home'], ['/STencrypter', 'Steganography'], ['/blocker', 'Website Blocker']]
+//linksArr = [['/', 'Home'], ['/STencrypter', 'Steganography'], ['/blocker', 'Website Blocker']]
+linksArr = [['index.html', 'Home'], ['stgraphy.html', 'Steganography'], ['blocker.html', 'Website Blocker']]
 
 for (i=0; i<linksArr.length; i++){
     getId("sidenavLinks").innerHTML += `<span onclick="window.open('${linksArr[i][0]}', '_self')">${linksArr[i][1]}</span>`;

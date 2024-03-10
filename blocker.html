@@ -151,10 +151,10 @@
 
 #blockA {
     position: fixed;
-    top: 60px;
+    top: 10px;
     right: 0;
     left: 0;
-    margin: -200px 0 0 0;
+    margin: -100px 0 0 0;
     transition: 1s all;
     z-index: 5;
 }
@@ -190,7 +190,7 @@
             <section id="menu1" onclick="sidenavF()"></section>
             <section id="cross1" onclick="exitNav()"></section>
             <span class="text1">Website Blocking</span>
-            <section id="mode1"></section>
+            <section id="mode1" title="Toggle Dark/Light Mode"></section>
         </section>
 
         <section id="mainHold">
@@ -201,7 +201,7 @@
             
             <section id="webList">
                 <span class="white2clr">List of websites added:</span>
-                <span class="redclr" onclick="clearForm()">Clear</span><br>
+                <span title="Clear the list added" class="redclr" onclick="clearForm()">Clear</span><br>
                 <section id="listHold"></section>
                 <section id="btnHold" class="flex">
                     <button class="redbtn" onclick="blockWeb1('listHold', 'NaN', 'B')">Block</button><button class="bluebtn" onclick="createMode1()">Create New Mode</button>
@@ -237,7 +237,7 @@
 
         <section id="botnav1">
             <section id="modeList"></section>
-            <section id="modeBtnHold"><button class="bluebtn" onclick="resetAll()">Reset</button></section>
+            <section id="modeBtnHold"><button class="bluebtn" onclick="resetAll()" title="Reset all the modes and blocked websites">Reset</button></section>
         </section>
         
 <script src="files/tools.js"></script>
@@ -257,7 +257,7 @@ modeNum = Number(localStorage.getItem("modeNum"));
 
 if(modeNum == null || modeNum == undefined || modeNum == 0){
     localStorage.setItem("modeNum", 1);
-    localStorage.setItem('mode1', JSON.stringify(['Mode1', 0, 'examplewebsite.com<br>']))
+    localStorage.setItem('mode1', JSON.stringify(['Mode1', 0, 'examplewebsite.com<br>', 'id2525']))
     modeNum = 1;
 }
 
@@ -279,7 +279,7 @@ function showAlert(text, action){
     clearTimeout(time1)
         getId('blockA').style.setProperty('margin', '0');
         time1 = setTimeout(() => {
-            getId('blockA').style.setProperty('margin', '-200px 0 0 0');
+            getId('blockA').style.setProperty('margin', '-100px 0 0 0');
         }, 2000);
         getId('alertH').innerHTML = text;
         if(action=='B'){
@@ -300,8 +300,10 @@ function webListF(num){
 function createMode1(){
     val2 = getId('listHold').innerHTML;
     if (val2 != ''){
+        const d1 = new Date();
+        id1 = String(d1.getFullYear())+String(d1.getMonth())+String(d1.getDate())+String(d1.getHours())+String(d1.getMinutes())+String(d1.getSeconds())+String(d1.getMilliseconds())
         modeNum= Number(localStorage.getItem('modeNum'))+1;
-        localStorage.setItem(`mode${modeNum}`, JSON.stringify([prompt('Enter mode name:'), 0, val2]));
+        localStorage.setItem(`mode${modeNum}`, JSON.stringify([prompt('Enter mode name:'), 0, val2, id1]));
         localStorage.setItem("modeNum", modeNum);
         getId('listHold').innerHTML='';
         getArr1();
@@ -315,6 +317,7 @@ function deleteMode1(num){
     modeNum = Number(localStorage.getItem("modeNum"));
     num3=num+1;
     tempModeAc = Number(JSON.parse(localStorage.getItem('mode'+num3))[1]);
+    id1 = tempModeAc = JSON.parse(localStorage.getItem('mode'+num3))[3];
     localStorage.removeItem("mode"+num3);
     localStorage.setItem("modeNum", modeNum-1);
     for(i = num3+1; i <= modeNum; i++){
@@ -326,24 +329,25 @@ function deleteMode1(num){
     getArr1();
     showModes();
     hideDetails();
-    if(tempModeAc==1){blockWeb1('webList2', num, 'UB')}
+    if(tempModeAc==1){blockWeb1('webList2', id1, 'UB')}
 }
 
 function switchB(num, stat){
     num2 = num+1;
     modeTemp = JSON.parse(localStorage.getItem('mode'+num2));
+    id1 = modeTemp[3];
     if (stat==0){
-        localStorage.setItem('mode'+num2, JSON.stringify([modeTemp[0], 1, modeTemp[2]]))
+        localStorage.setItem('mode'+num2, JSON.stringify([modeTemp[0], 1, modeTemp[2], modeTemp[3]]))
     } else {
-        localStorage.setItem('mode'+num2, JSON.stringify([modeTemp[0], 0, modeTemp[2]]))
+        localStorage.setItem('mode'+num2, JSON.stringify([modeTemp[0], 0, modeTemp[2], modeTemp[3]]))
     }
     getArr1();
     showDetails1(num);
     showModes();
     if(stat==0){
-        blockWeb1('webList2', num, 'B');
+        blockWeb1('webList2', id1, 'B');
     } else {
-        blockWeb1('webList2', num, 'UB');
+        blockWeb1('webList2', id1, 'UB');
     }
 }
 
@@ -414,7 +418,8 @@ function blockWeb1(list, id, action){
     }
 }
 
-linksArr = [['/', 'Home'], ['/encrypter', 'Encryption'], ['/STencrypter', 'Steganography']]
+//linksArr = [['/', 'Home'], ['/encrypter', 'Encryption'], ['/STencrypter', 'Steganography']]
+linksArr = [['index.html', 'Home'], ['encrypter.html', 'Encryption'], ['stgraphy.html', 'Steganography']]
 
 for (i=0; i<linksArr.length; i++){
     getId("sidenavLinks").innerHTML += `<span onclick="window.open('${linksArr[i][0]}', '_self')">${linksArr[i][1]}</span>`;
