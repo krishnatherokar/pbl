@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", calibri;
+    color: var(--white1);
+    background-color: var(--dark3);
+}
+
+* {
+    transition: .6s background-color;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --white1: #fff;
+    --white2: #e3e3e3;
+    --dark1: #0a0908;
+    --dark2: #a7a7a7;
+    --dark3: #1f1f1f;
+    --dark4: #292929;
+
+    --circle0: #9e9e9e;
+    --circle1: #00ff37;
+
+    --transP1: #ededed30;
+
+    --red1: #ff1414;
+    --red2: #ff141430;
+    --blue1: #0f4bff;
+    --blue2: #0f4bff30;
+    --green1: #47ff5c;
+    --green2: #47ff5c30;
+    --yellow1: #ffee00;
+}
+
+::-webkit-scrollbar {
+    height:6px;
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: var(--dark4);
+}
+    
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+.noneD {
+    display: none;
+}
+
+.redclr {
+    color: var(--red1);
+}
+
+.blueclr {
+    color: var(--blue1);
+}
+
+.greenclr {
+    color: var(--green1);
+}
+
+.transbtn {
+    color: var(--white2);
+    background-color: transparent;
+    border: 2px solid var(--white2);
+}
+
+.redbtn {
+    color: var(--red1);
+    background-color: transparent;
+    border: 2px solid var(--red1);
+    box-shadow: 10px 10px 60px var(--red2);
+}
+
+.bluebtn {
+    color: var(--blue1);
+    background-color: transparent;
+    border: 2px solid var(--blue1);
+    box-shadow: 10px 10px 60px var(--blue2);
+}
+
+.greenbtn {
+    color: var(--green1);
+    background-color: transparent;
+    border: 2px solid var(--green1);
+    box-shadow: 10px 10px 60px var(--green2);
+}
+
+.redbtn:hover {
+    background-color: var(--red1);
+    color: #fff;
+}
+
+.bluebtn:hover {
+    background-color: var(--blue1);
+    color: #fff;
+}
+
+.greenbtn:hover {
+    background-color: var(--green1);
+    color: #000;
+}
+
+.normbtn {
+    color: var(--white1);
+    background-color: var(--dark4);
+}
+
+.white2clr {
+    color: var(--white2);
+}
+
+.text1 {
+    font-size: 22px;
+}
+
+#topnav1 {
+    top: 0;
+    z-index: 3;
+}
+
+.fixedDiv {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#topnav1 {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    background-color: var(--dark1);
+}
+
+#topnav section {
+    display: inline;
+}
+
+#mode1 {
+    float: right;
+}
+
+#menu1, #cross1 {
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+#sidenav {
+    z-index: 2;
+    display: flex;
+    backdrop-filter: blur(4px);
+    background-color: var(--transP1);
+}
+
+#sidenavLinks span {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    color: var(--blue1);
+    border: 2px solid var(--blue1);
+    border-radius: 4px;
+}
+
+#sidenavLinks span:hover {
+    color: #fff;
+    background-color: var(--blue1);
+}
+
+@media only screen and (min-width: 600px){
+    #sidediv {
+        width: 40%;
+    }
+
+    #dummydiv {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    #sidediv {
+        width: 70%;
+    }
+    
+    #dummydiv {
+        width: 30%;
+    }
+}
+
+#sidediv {
+    margin: 0 0 0 -100vw;
+    padding: 60px 10px 10px 10px;
+    transition: .6s all;
+    height: 100vh;
+    background-color: var(--dark1);
+    display: none;
+}
+
+#dummydiv {
+    height: 100vh;
+}
+
+#mainHold {
+    text-align: center;
+    margin: 80px 20px 20px 20px;
+}
+
+.web1 {
+    font-size: 18px;
+    width: 100%;
+    color: var(--white2);
+    background-color: var(--dark1);
+    padding: 10px;
+    border: 2px solid var(--transP1);
+}
+
+input, button {
+    font-family: "DM Sans", calibri;
+    border: 0;
+    outline: 0;
+    border-radius: 4px;
+}
+
+button {
+    cursor: pointer;
+}
+
+input:focus {
+    outline: 0;
+}
+
+input::placeholder {
+    color: var(--dark2);
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}

@@ -9,257 +9,9 @@
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+        <link href="files/tools.css" rel="stylesheet">
+
 <style>
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "DM Sans", calibri;
-    color: var(--white1);
-    background-color: var(--dark3);
-}
-
-* {
-    transition: .6s background-color;
-    -webkit-tap-highlight-color: transparent;
-}
-
-/*
-font-family: "VT323"
-*/
-
-:root {
-    --white1: #fff;
-    --white2: #e3e3e3;
-    --dark1: #0a0908;
-    --dark2: #a7a7a7;
-    --dark3: #1f1f1f;
-    --dark4: #292929;
-
-    --circle0: #9e9e9e;
-    --circle1: #00ff37;
-
-    --transP1: #ededed30;
-
-    --red1: #ff1414;
-    --red2: #ff141430;
-    --blue1: #0f4bff;
-    --blue2: #0f4bff30;
-    --green1: #47ff5c;
-    --green2: #47ff5c30;
-    --yellow1: #ffee00;
-}
-
-::-webkit-scrollbar {
-    height:6px;
-    width:8px;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background: var(--dark4);
-}
-    
-::-webkit-scrollbar-button {
-    display: none;
-}
-
-.noneD {
-    display: none;
-}
-
-.redclr {
-    color: var(--red1);
-}
-
-.blueclr {
-    color: var(--blue1);
-}
-
-.greenclr {
-    color: var(--green1);
-}
-
-.transbtn {
-    color: var(--white2);
-    background-color: transparent;
-    border: 2px solid var(--white2);
-}
-
-.redbtn {
-    color: var(--red1);
-    background-color: transparent;
-    border: 2px solid var(--red1);
-    box-shadow: 10px 10px 60px var(--red2);
-}
-
-.bluebtn {
-    color: var(--blue1);
-    background-color: transparent;
-    border: 2px solid var(--blue1);
-    box-shadow: 10px 10px 60px var(--blue2);
-}
-
-.greenbtn {
-    color: var(--green1);
-    background-color: transparent;
-    border: 2px solid var(--green1);
-    box-shadow: 10px 10px 60px var(--green2);
-}
-
-.redbtn:hover {
-    background-color: var(--red1);
-    color: #fff;
-}
-
-.bluebtn:hover {
-    background-color: var(--blue1);
-    color: #fff;
-}
-
-.greenbtn:hover {
-    background-color: var(--green1);
-    color: #000;
-}
-
-.normbtn {
-    color: var(--white1);
-    background-color: var(--dark4);
-}
-
-.white2clr {
-    color: var(--white2);
-}
-
-.text1 {
-    font-size: 22px;
-}
-
-#topnav1 {
-    top: 0;
-    z-index: 3;
-}
-
-.fixedDiv {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
-
-#topnav1 {
-    position: fixed;
-    left: 0;
-    right: 0;
-    padding: 10px 20px;
-    background-color: var(--dark1);
-/*  
-    box-shadow: 0 0 10px var(--dark4);
-*/
-}
-
-#topnav section {
-    display: inline;
-}
-
-#mode1 {
-    float: right;
-}
-
-#menu1, #cross1 {
-    float: left;
-    margin: 0 10px 0 0;
-}
-
-#sidenav {
-    z-index: 2;
-    display: flex;
-    backdrop-filter: blur(4px);
-    background-color: var(--transP1);
-}
-
-#sidenavLinks span {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    margin: 10px 0;
-    cursor: pointer;
-    color: var(--blue1);
-    border: 2px solid var(--blue1);
-    border-radius: 4px;
-}
-
-#sidenavLinks span:hover {
-    color: #fff;
-    background-color: var(--blue1);
-}
-
-@media only screen and (min-width: 600px){
-    #sidediv {
-        width: 40%;
-    }
-
-    #dummydiv {
-        width: 60%;
-    }
-}
-
-@media only screen and (max-width: 600px){
-    #sidediv {
-        width: 70%;
-    }
-    
-    #dummydiv {
-        width: 30%;
-    }
-}
-
-#sidediv {
-    margin: 0 0 0 -100vw;
-    padding: 60px 10px 10px 10px;
-    transition: .6s all;
-    height: 100vh;
-    background-color: var(--dark1);
-    display: none;
-}
-
-#dummydiv {
-    height: 100vh;
-}
-
-#mainHold {
-    text-align: center;
-    margin: 100px 20px 200px 20px;
-}
-
-.web1 {
-    font-size: 18px;
-    width: 100%;
-    color: var(--white2);
-    background-color: var(--dark1);
-    padding: 10px;
-    border: 2px solid var(--transP1);
-}
-
-input, button {
-    font-family: "DM Sans", calibri;
-    border: 0;
-    outline: 0;
-    border-radius: 4px;
-}
-
-button {
-    cursor: pointer;
-}
-
-input:focus {
-    outline: 0;
-}
-
-input::placeholder {
-    color: var(--dark2);
-}
 
 .subBtn {
     padding: 10px 30px;
@@ -278,7 +30,7 @@ label.selectF input[type="file"] {
   min-width: 100px;
   border-radius: 4px;
   padding: 10px 15px;
-  margin: 0 0 0 10px;
+  margin: 10px auto 0 auto;
   background: var(--dark1);
   box-shadow: 10px 10px 60px var(--blue2);
   display: inline-block;
@@ -287,11 +39,6 @@ label.selectF input[type="file"] {
 .selectF:hover {
     background-color: var(--blue1);
     color: #fff;
-}
-
-.flex {
-    display: flex;
-    justify-content: space-around;
 }
 
 .card1 {
@@ -319,10 +66,6 @@ label.selectF input[type="file"] {
     display: block;
 }
 
-#pass3 {
-    display: none;
-}
-
 #details1 {
     font-size: 10px;
     color: var(--dark2);
@@ -345,18 +88,19 @@ label.selectF input[type="file"] {
 
         <section id="mainHold">
             <section id="imgHold">
-                <img id="img1" src="" onerror=this.src="files/Security-1.jpg">
+                <img id="img1" src="" onerror=this.src="files/security.png">
             </section>
             <section id="details1"></section>
+            <label class="selectF">
+                <input id="fileIPS" name="fileIP" type="file" accept="image/*" required/>
+                <span>Select a file</span>
+            </label>
             <section class="card1">
                 <span class="greenclr">En</span>crypter:<br>
                 <form action="/STencrypt" method="post">
                     <section class="flex">
+                        <input id="fileIP" name="fileIP" class="noneD" type="text" required>
                         <input id="textENC" name="textENC" class="web1" type="text" placeholder="Enter text to encrypt" autocomplete="off" required>
-                        <label class="selectF">
-                            <input id="fileIP" name="fileIP" type="file" accept="image/*" required/>
-                            <span>Select a file</span>
-                        </label>
                     </section>
                     <section class="flex">
                         <input id="pass2" name="pass2" class="web1" type="password" placeholder="Enter password" autocomplete="off" required>
@@ -369,12 +113,9 @@ label.selectF input[type="file"] {
                 <span class="blueclr">De</span>crypter:<br>
                 <form action="/STdecrypt" method="post">
                     <section class="flex">
-                        <label class="selectF">
-                            <input id="fileIP2" name="fileIP2" type="file" accept="image/*" required/>
-                            <span>Select a file</span>
-                        </label>
-                        <input id="pass3" name="pass3" required>
-                        <button class="subBtn greenbtn" type="submit">Decrypt</button>
+                        <input id="fileIP2" name="fileIP2" class="noneD" type="text" required>
+                        <input id="pass3" name="pass3" class="web1" type="password" placeholder="Enter password" required>
+                        <button class="subBtn bluebtn" type="submit">Decrypt</button>
                     </section>
                 </form>
             </section>
@@ -388,88 +129,27 @@ label.selectF input[type="file"] {
             </section>
             <section id="dummydiv" onclick="exitNav()"></section>
         </section>
-        
+
+<script src="files/tools.js"></script>
 <script>
 
-function getId(id){
-    return document.getElementById(id)
-}
-
-cssRoot = document.querySelector(':root');
-menu1 = getId('menu1');
-mode1 = getId('mode1');
-cross1 = getId('cross1');
-sidediv = getId('sidediv');
-
-modeStat=1;
-
-svgMenu = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`
-svgSun = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`
-svgMoon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`
-svgCross = `<svg onclick="exitNav()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`
-svgCross2 = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`
-
-$('#sidenav').hide();
-menu1.innerHTML = svgMenu;
-mode1.innerHTML = svgSun;
-cross1.innerHTML = svgCross;
-
-mode1.addEventListener("click", modeF)
-
-arrClr = ['transP1', 'white1', 'white2', 'dark1', 'dark2', 'dark3', 'dark4'];
-arrHex1 = ['ededed30', 'fff', 'e3e3e3', '0a0908', 'a7a7a7', '1f1f1f', '292929'];
-arrHex2 = ['3d3d3d30', '0a0908', '292929', 'fff', 'a7a7a7', 'f1f1f1', 'f2f2f2'];
-
-function modeF(){
-    if (modeStat==1){
-        arrHex = arrHex2;
-        mode1.innerHTML=svgMoon;
-        modeStat=0;
-    } else {
-        arrHex = arrHex1;
-        mode1.innerHTML=svgSun;
-        modeStat=1;
-    }
-    for (j=0; j<arrClr.length; j++){
-        cssRoot.style.setProperty('--'+arrClr[j], '#'+arrHex[j]);
-    }
-}
-
-getId("fileIP").onchange = evt => {
-    const [file] = getId("fileIP").files
+getId("fileIPS").onchange = evt => {
+    const [file] = getId("fileIPS").files
     if (file){
         getId("details1").innerHTML=''
         unit1 = file.size/1024>1024?' MB':' KB';
         size1 = unit1==' KB'?file.size/1024:file.size/1048576;
         numTemp = String(size1).indexOf('.');
         getId("img1").src = URL.createObjectURL(file)
-        getId("details1").innerHTML+=`<span>Name: </span>${file.name}<br><span>Modification date: </span>${file.lastModifiedDate}<br><span>Size: </span>${String(size1).slice(0, numTemp+3)+unit1}`
+        getId("details1").innerHTML+=`<span>Name: </span>${file.name}<br><span>Modification date: </span>${file.lastModifiedDate}<br><span>Size: </span>${String(size1).slice(0, numTemp+3)+unit1}`;
+        setTimeout(() => {
+            do {
+                filePath = prompt("Couldn't get the image path. Please enter manually.")
+            } while (filePath==null || filePath=='' || filePath==undefined);
+            getId('fileIP').value = filePath;
+            getId('fileIP2').value = filePath;
+        }, 100);
     }
-}
-
-getId("fileIP2").onchange = evt => {
-    const [file] = getId("fileIP2").files;
-    if (file){
-        getId("details1").innerHTML=''
-        getId("img1").src = URL.createObjectURL(file)
-        getId('pass3').value=prompt('Enter password')
-    }
-}
-
-function sidenavF(){
-    $('#cross1').show()
-    $('#menu1').hide();
-    $('#sidenav').show();
-    $('#sidediv').fadeIn(100);
-    sidediv.style.margin = '0';
-}
-
-function exitNav(){
-    $('#cross1').hide()
-    $('#menu1').show();
-    $('#sidenav').fadeOut();
-    $('#sidediv').fadeOut();
-    sidediv.style.margin = '0 0 0 -100vw';
 }
 
 linksArr = [['/', 'Home'], ['/blocker', 'Website Blocker'], ['/encrypter', 'Encryption']]
