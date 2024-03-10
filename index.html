@@ -1,14 +1,179 @@
 <html>
     <head>
-        <title></title>
+        <title>PBL Project | Home</title>
 
         <meta charset=utf-8>
         <meta name=viewport content="width=device-width, initial-scale=1.0">
 
-<style></style>
+<style>
+
+:root {
+    --white1: #F8F9FA;
+    --dark1: #343A40;
+
+    --blue1: #0f4bff;
+    --yellow1: #f5ebe0;
+
+    --back1: #1d3557;
+    --back2: #DEE2E6;
+    --back3: #edf2f4;
+    --back4: #E9ECEF;
+    --back5: #495057;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", calibri;
+    font-size: 16px;
+    color: var(--dark1);
+}
+/*
+* {
+    transition: .6s background-color;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+*/
+.text1 {
+    font-size: 30px;
+    color: var(--yellow1);
+}
+
+.text2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--dark1);
+}
+
+.text3 {
+    font-size: 24px;
+}
+
+.clr1 {
+    color: var(--back4);
+}
+
+.clr2 {
+    color: var(--white1);
+}
+
+.card2 {
+    margin: 60px auto;
+    max-width: 500px;
+}
+
+.card2 section {
+    margin: 20px 0;
+}
+
+.btn1 {
+    float: right;
+    padding: 12px;
+    margin: 0 0 10px 10px;
+    font-family: "DM Sans", calibri;
+    color: var(--white1);
+    border: 2px solid var(--blue1);
+    background-color: var(--blue1);
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn1:hover {
+    color: var(--blue1);
+    background-color: transparent;
+}
+
+.sec {
+    padding: 20px;
+}
+
+#intro1 {
+    background-color: var(--back1);
+}
+
+#sec2 {
+    background-color: var(--back2);
+}
+
+#sec3 {
+    background-color: var(--back3);
+}
+
+#sec4 {
+    background-color: var(--back4);
+}
+
+#sec5 {
+    background-color: var(--back5);
+}
+
+</style>
 
     </head>
     <body>
-<script></script>
+        <section id="intro1" class="sec clr2">
+            <section class="card2">
+                <section class="text1">
+                    A general purpose Utility Tool
+                </section>
+                <section id="typeText"></section>
+            </section>
+        </section>
+
+        <section id="mainSec"></section>
+
+        <section id="sec5" class="sec clr2">
+            <section class="card2">
+                <section class="text3">
+                    Contributers:
+                </section>
+            </section>
+        </section>
+
+<script>
+
+function getId(id){
+    return document.getElementById(id)
+}
+
+arr1 = [
+    ['blocker', 'Website blocker:',
+    ['This tool is useful to block access to unwanted websites from your computer.',
+    'It contains \'modes\' to customize the list of websites you want to block or unblock at a time.',
+    'It stores data in browser cookies so that the modes you create will be saved even if you refresh the website.']
+    ],
+    ['encrypter', 'Text encrypter',
+    ['We can input a simple text to get it\'s encrypted form and also a key to decrypt it.',
+    'Without the key, the encrypted text cannot be decrypted.']
+    ],
+    ['STencrypter', 'Steganography',
+    ['With this tool, we can store some text inside an image file.',
+    'It will be protected by a password.',
+    'To access the hidden text, you need to select exact file or provide it\'s path and passoword.']
+    ]
+];
+
+for(i=0; i<arr1.length; i++){
+    pTemp = '';
+    for (n=0; n<arr1[i][2].length; n++){
+        pTemp+=`<li>${arr1[i][2][n]}</li>`
+    }
+    getId('mainSec').innerHTML += `
+        <section id="sec${i+2}" class="sec">
+            <section class="card2">
+                <button class="btn1" onclick="window.open('/${arr1[i][0]}', '_self')">Open tool</button>
+                <section class="text2">${arr1[i][1]}</section>
+                <section>
+                    <ul>${pTemp}</ul>
+                </section>
+            </section>
+        </section>`
+}
+
+</script>
     </body>
 </html>

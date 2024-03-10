@@ -23,8 +23,8 @@ cross1.innerHTML = svgCross;
 mode1.addEventListener("click", modeF)
 
 arrClr = ['transP1', 'white1', 'white2', 'dark1', 'dark2', 'dark3', 'dark4'];
-arrHex1 = ['ededed30', 'fff', 'e3e3e3', '0a0908', 'a7a7a7', '1f1f1f', '292929'];
-arrHex2 = ['3d3d3d30', '0a0908', '292929', 'fff', 'a7a7a7', 'f1f1f1', 'f2f2f2'];
+arrHex1 = ['ededed30', 'f8f9fa', 'e9ecef', '212529', 'a7a7a7', '343a40', '495057'];
+arrHex2 = ['3d3d3d30', '212529', '343a40', 'f8f9fa', 'a7a7a7', 'e9ecef', 'dee2e6'];
 
 function modeF(){
     if (modeStat==1){

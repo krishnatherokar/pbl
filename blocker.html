@@ -83,8 +83,13 @@
     color: var(--white1);
     font-size: 16px;
     background-color: transparent;
-    border: 2px solid var(--dark2);
+    border: 2px solid var(--white1);
     margin: 0 0 0 10px;
+}
+
+#subBtn:hover {
+    background-color: var(--white1);
+    color: var(--dark1);
 }
 
 #form1 {
@@ -164,6 +169,16 @@
 #alertH {
     padding: 20px;
     border-radius: 6px;
+}
+
+.redAlert {
+    border: 2px solid var(--red1);
+    background-color: var(--red2);
+}
+
+.greenAlert {
+    border: 2px solid var(--green1);
+    background-color: var(--green2);
 }
 
 </style>
@@ -263,6 +278,24 @@ function getArr1(){
 
 getArr1();
 
+time1 = setTimeout(() => {}, 0);
+
+function showAlert(text, action){
+    clearTimeout(time1)
+        getId('blockA').style.setProperty('margin', '0');
+        time1 = setTimeout(() => {
+            getId('blockA').style.setProperty('margin', '-200px 0 0 0');
+        }, 2000);
+        getId('alertH').innerHTML = text;
+        if(action=='B'){
+            getId('alertH').classList.remove("greenAlert");
+            getId('alertH').classList.add("redAlert");
+        } else {
+            getId('alertH').classList.remove("redAlert");
+            getId('alertH').classList.add("greenAlert");
+        }
+}
+
 function webListF(num){
     tempList1 = '';
     tempList1 += arrMode[num][2];
@@ -279,7 +312,7 @@ function createMode1(){
         getArr1();
         showModes();
     } else {
-        alert('Enter a website first')
+        showAlert('Enter a website first', 'B')
     }
 }
 
@@ -346,7 +379,7 @@ function showDetails1(num){
 }
 
 function hideDetails(){
-    $('#modeDetails').hide();
+    $('#modeDetails').fadeOut();
     showModes();
 }
 
@@ -364,30 +397,19 @@ getId("form1").addEventListener("submit", event=>{
         getId('listHold').innerHTML += `${val1}<br>`;
     }
     else {
-        alert("Enter valid website")
+        showAlert("Enter a valid website", 'B')
     }
     getId('web1').value = '';
 });
 
-time1 = setTimeout(() => {}, 0);
-
 function blockWeb1(list, id, action){
     if(getId(list).innerHTML==''){
-        alert('Enter a website first')
+        showAlert('Enter a website first', 'B')
     } else {
-        clearTimeout(time1)
-        getId('blockA').style.setProperty('margin', '0');
-        time1 = setTimeout(() => {
-            getId('blockA').style.setProperty('margin', '-200px 0 0 0');
-        }, 3000);
         if(action=='B'){
-            getId('alertH').innerHTML = "Websites Blocked";
-            getId('alertH').style.setProperty('border', '2px solid var(--red1)');
-            getId('alertH').style.setProperty('background-color', 'var(--red2)');
+            showAlert("Websites Blocked", 'B')
         } else {
-            getId('alertH').innerHTML = "Websites Unblocked";
-            getId('alertH').style.setProperty('border', '2px solid var(--green1)');
-            getId('alertH').style.setProperty('background-color', 'var(--green2)');
+            showAlert("Websites Unlocked", 'UB')
         }
         getId('webList3').value = getId(list).innerHTML;
         getId('listHold').innerHTML='';
@@ -403,8 +425,8 @@ for (i=0; i<linksArr.length; i++){
     getId("sidenavLinks").innerHTML += `<span onclick="window.open('${linksArr[i][0]}', '_self')">${linksArr[i][1]}</span>`;
 }
 
+$('#modeDetails').hide();
 exitNav();
-hideDetails();
 showModes();
 
 </script>
