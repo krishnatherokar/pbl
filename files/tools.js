@@ -50,6 +50,7 @@ function modeF(){
 }
 
 function modeCh(){
+    cssRoot.style.setProperty('--sec1', '0s');
     if (modeStat==1){
         arrHex = arrHex1;
         mode1.innerHTML=svgSun;
@@ -60,6 +61,9 @@ function modeCh(){
     for (j=0; j<arrClr.length; j++){
         cssRoot.style.setProperty('--'+arrClr[j], '#'+arrHex[j]);
     }
+    setTimeout(() => {
+        cssRoot.style.setProperty('--sec1', '.6s');
+    }, 100);
 }
 
 function sidenavF(){

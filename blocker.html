@@ -54,6 +54,7 @@
     padding: 20px;
     backdrop-filter: blur(4px);
     background-color: var(--transP1);
+    display: none;
 }
 
 #closeDiv1 {
@@ -80,16 +81,10 @@
 
 #subBtn {
     padding: 10px 30px;
+    background-color: var(--dark1);
     color: var(--white1);
     font-size: 16px;
-    background-color: transparent;
-    border: 2px solid var(--white1);
     margin: 0 0 0 10px;
-}
-
-#subBtn:hover {
-    background-color: var(--white1);
-    color: var(--dark1);
 }
 
 #form1 {
@@ -100,7 +95,7 @@
 }
 
 #btnHold {
-    margin: 30px 0 10px 0;
+    margin: 10px 0 10px 0;
 }
 
 #detailsBtn button {
@@ -139,14 +134,12 @@
 }
 
 #listHold {
-    margin: 20px 0 0 0;
+    margin: 20px 0;
     font-size: 16px;
-    color: var(--dark2);
-    padding: 10px;
+    color: var(--white2);
     max-height: 200px;
     overflow-y: scroll;
     border-radius: 4px;
-    border: 2px solid var(--transP1);
 }
 
 #blockA {
@@ -257,7 +250,7 @@ modeNum = Number(localStorage.getItem("modeNum"));
 
 if(modeNum == null || modeNum == undefined || modeNum == 0){
     localStorage.setItem("modeNum", 1);
-    localStorage.setItem('mode1', JSON.stringify(['Mode1', 0, 'examplewebsite.com<br>', 'id2525']))
+    localStorage.setItem('mode1', JSON.stringify(['Study Mode', 0, 'instagram.com<br>facebook.com<br>', 'id2525']))
     modeNum = 1;
 }
 
@@ -425,8 +418,7 @@ for (i=0; i<linksArr.length; i++){
     getId("sidenavLinks").innerHTML += `<span onclick="window.open('${linksArr[i][0]}', '_self')">${linksArr[i][1]}</span>`;
 }
 
-$('#modeDetails').hide();
-exitNav();
+$('#sidenav').hide();
 showModes();
 
 </script>

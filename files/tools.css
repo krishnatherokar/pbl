@@ -7,7 +7,7 @@ body {
 }
 
 * {
-    transition: .6s background-color;
+    transition: var(--sec1) background-color;
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -15,6 +15,7 @@ body {
 }
 
 :root {
+    --sec1: .6s;
     --white1: #f8f9fa;
     --white2: #e9ecef;
     --dark1: #212529;
@@ -28,11 +29,8 @@ body {
     --transP1: #ededed30;
 
     --red1: #ff1414;
-    --red2: #ff141430;
     --blue1: #0f4bff;
-    --blue2: #0f4bff30;
-    --green1: #47ff5c;
-    --green2: #47ff5c30;
+    --green1: #32CD32;
     --yellow1: #ffee00;
 }
 
@@ -67,55 +65,24 @@ body {
 }
 
 .transbtn {
-    color: var(--white2);
-    background-color: transparent;
-    border: 2px solid var(--white2);
-}
-
-.redbtn {
-    color: var(--red1);
-    background-color: transparent;
-    border: 2px solid var(--red1);
-    box-shadow: 10px 10px 60px var(--red2);
-}
-
-.bluebtn {
-    color: var(--blue1);
-    background-color: transparent;
-    border: 2px solid var(--blue1);
-    box-shadow: 10px 10px 60px var(--blue2);
-}
-
-.greenbtn {
-    color: var(--green1);
-    background-color: transparent;
-    border: 2px solid var(--green1);
-    box-shadow: 10px 10px 60px var(--green2);
-}
-
-.transbtn:hover {
     background-color: var(--white2);
     color: var(--dark1);
 }
 
-.redbtn:hover {
+.redbtn, .bluebtn, .greenbtn {
+    color: #fff;
+}
+
+.redbtn {
     background-color: var(--red1);
-    color: #fff;
 }
 
-.bluebtn:hover {
+.bluebtn {
     background-color: var(--blue1);
-    color: #fff;
 }
 
-.greenbtn:hover {
+.greenbtn {
     background-color: var(--green1);
-    color: #000;
-}
-
-.normbtn {
-    color: var(--white1);
-    background-color: var(--dark4);
 }
 
 .white2clr {
@@ -147,10 +114,6 @@ body {
     background-color: var(--dark1);
 }
 
-#topnav section {
-    display: inline;
-}
-
 #mode1 {
     float: right;
 }
@@ -158,6 +121,10 @@ body {
 #menu1, #cross1 {
     float: left;
     margin: 0 10px 0 0;
+}
+
+#cross1 {
+    display: none;
 }
 
 #sidenav {
@@ -173,14 +140,9 @@ body {
     padding: 10px;
     margin: 10px 0;
     cursor: pointer;
-    color: var(--blue1);
-    border: 2px solid var(--blue1);
-    border-radius: 4px;
-}
-
-#sidenavLinks span:hover {
     color: #fff;
     background-color: var(--blue1);
+    border-radius: 4px;
 }
 
 @media only screen and (min-width: 600px){

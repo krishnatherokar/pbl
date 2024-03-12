@@ -12,6 +12,7 @@
 :root {
     --white1: #F8F9FA;
     --white2: #ced4da;
+    --white3: #F0F3F4;
     --dark1: #343A40;
     --dark2: #a0a0a0;
     --dark3: #696969;
@@ -66,7 +67,7 @@ body {
 }
 
 .clr3 {
-    background-color: var(--white1);
+    background-color: var(--white3);
     color: var(--dark3);
 }
 
@@ -118,20 +119,10 @@ body {
 
 .btn1 {
     float: right;
-    padding: 12px;
+    padding: 10px;
     margin: 0 0 10px 10px;
-    font-family: "DM Sans", calibri;
-    color: var(--white1);
-    border: 2px solid var(--blue1);
-    background-color: var(--blue1);
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.btn1:hover {
     color: var(--blue1);
-    background-color: transparent;
+    cursor: pointer;
 }
 
 .sec {
@@ -165,7 +156,7 @@ body {
         <section id="intro1" class="sec clr2">
             <section class="card2">
                 <section class="text1">
-                    A general purpose Utility Tool
+                    A General Purpose Utility Tool
                 </section>
                 <section id="typeText"></section>
             </section>
@@ -201,10 +192,10 @@ var typewriter = new Typewriter(app, {
     loop: true
 });
 
-typewriter.typeString('Website blocker')
+typewriter.typeString('Website Blocker')
     .pauseFor(1000)
     .deleteAll()
-    .typeString('Text encrypter')
+    .typeString('Text Encrypter')
     .pauseFor(1000)
     .deleteAll()
     //.deleteChars(7)
@@ -214,14 +205,14 @@ typewriter.typeString('Website blocker')
 
 arr1 = [
     //['blocker', 'Website blocker',
-    ['pbl/blocker.html', 'Website blocker',
+    ['pbl/blocker.html', 'Website Blocker',
     ['This tool is useful to block access to unwanted websites from your computer.',
     'It contains \'modes\' to customize the list of websites you want to block or unblock at a time.',
     'Generates unique id for each mode.',
     'It stores data in browser cookies so that the modes you create will be saved even if you refresh the website.']
     ],
     //['encrypter', 'Text encrypter',
-    ['pbl/encrypter.html', 'Text encrypter',
+    ['pbl/encrypter.html', 'Text Encrypter',
     ['We can input a simple text to get it\'s encrypted form and also a key to decrypt it.',
     'Without the key, the encrypted text cannot be decrypted.']
     ],
@@ -229,7 +220,7 @@ arr1 = [
     ['pbl/stgraphy.html', 'Steganography',
     ['With this tool, we can store some text inside an image file.',
     'It will be protected by a password.',
-    'To access the hidden text, you need to select exact file or provide it\'s path and passoword.',
+    'To access the hidden text, you need to select exact file or provide it\'s path and password.',
     'It also shows file details.']
     ]
 ];
@@ -242,8 +233,8 @@ for(i=0; i<arr1.length; i++){
     getId('mainSec').innerHTML += `
         <section id="sec${i+2}" class="sec">
             <section class="card2">
-                <button class="btn1" onclick="window.open('/${arr1[i][0]}', '_self')">Open tool</button>
-                <section class="text2">${arr1[i][1]}</section>
+                <span class="btn1" onclick="window.open('/${arr1[i][0]}', '_self')">Open</span>
+                <section class="text2" onclick="window.open('/${arr1[i][0]}', '_self')">${arr1[i][1]}</section>
                 <section>
                     <ul>${pTemp}</ul>
                 </section>

@@ -24,21 +24,14 @@ label.selectF input[type="file"] {
 }
 
 .selectF {
-  cursor: pointer;
-  border: 2px solid var(--blue1);
-  color: var(--blue1);
-  min-width: 100px;
-  border-radius: 4px;
-  padding: 10px 15px;
-  margin: 10px auto 0 auto;
-  background: var(--dark1);
-  box-shadow: 10px 10px 60px var(--blue2);
-  display: inline-block;
-}
-
-.selectF:hover {
+    cursor: pointer;
+    min-width: 100px;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 10px auto 0 auto;
     background-color: var(--blue1);
     color: #fff;
+    display: inline-block;
 }
 
 .card1 {
@@ -96,7 +89,7 @@ label.selectF input[type="file"] {
                 <span>Select a file</span>
             </label>
             <section class="card1">
-                <span class="greenclr">En</span>crypter:<br>
+                Encrypter:<br>
                 <form action="/STencrypt" method="post">
                     <section class="flex">
                         <input id="fileIP" name="fileIP" class="noneD" type="text" required>
@@ -110,7 +103,7 @@ label.selectF input[type="file"] {
             </section>
 
             <section class="card1">
-                <span class="blueclr">De</span>crypter:<br>
+                Decrypter:<br>
                 <form action="/STdecrypt" method="post">
                     <section class="flex">
                         <input id="fileIP2" name="fileIP2" class="noneD" type="text" required>
