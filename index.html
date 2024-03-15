@@ -12,7 +12,6 @@
 :root {
     --white1: #F8F9FA;
     --white2: #ced4da;
-    --white3: #F0F3F4;
     --dark1: #343A40;
     --dark2: #a0a0a0;
     --dark3: #696969;
@@ -24,7 +23,8 @@
     --back2: #DEE2E6;
     --back3: #edf2f4;
     --back4: #E9ECEF;
-    --back5: #BBCBCB;
+    --back5: #F0F3F4;
+    --back0: #BBCBCB;
 }
 
 body {
@@ -64,11 +64,6 @@ body {
 
 .clr2 {
     color: var(--white1);
-}
-
-.clr3 {
-    background-color: var(--white3);
-    color: var(--dark3);
 }
 
 .card2 {
@@ -134,20 +129,8 @@ body {
     background-color: var(--back1);
 }
 
-#sec2 {
-    background-color: var(--back2);
-}
-
-#sec3 {
-    background-color: var(--back3);
-}
-
-#sec4 {
-    background-color: var(--back4);
-}
-
-#sec5 {
-    background-color: var(--back5);
+#secOutro {
+    background-color: var(--back0);
 }
 
 </style>
@@ -165,13 +148,17 @@ body {
 
         <section id="mainSec"></section>
 
-        <section class="sec clr3">
+        <section class="sec" style="background-color: var(--back5);">
             <section class="card2">
-                Added dark & light mode in every tool for more customisation. Just click the sun icon at top right corner after clicking 'Open'.
+                <ul>
+                    <li>
+                        Added dark & light mode in every tool for more customisation. Just click the sun icon at top right corner after clicking 'Open'.
+                    </li>
+                </ul>
             </section>
         </section>
 
-        <section id="sec5" class="sec">
+        <section id="secOutro" class="sec">
             <section class="cardP">
                 <section class="text3">
                     Project members:
@@ -186,13 +173,14 @@ function getId(id){
     return document.getElementById(id)
 }
 
-var app = getId('typeText');
+app = getId('typeText');
 
-var typewriter = new Typewriter(app, {
+try {
+    typewriter = new Typewriter(app, {
     loop: true
-});
-
-typewriter.typeString('Website Blocker')
+    });
+    
+    typewriter.typeString('Website Blocker')
     .pauseFor(1000)
     .deleteAll()
     .typeString('Text Encrypter')
@@ -202,6 +190,8 @@ typewriter.typeString('Website Blocker')
     .typeString('Steganography')
     .pauseFor(1000)
     .start();
+
+} catch (error) {}
 
 arr1 = [
     //['blocker', 'Website blocker',
@@ -231,7 +221,7 @@ for(i=0; i<arr1.length; i++){
         pTemp+=`<li>${arr1[i][2][n]}</li>`
     }
     getId('mainSec').innerHTML += `
-        <section id="sec${i+2}" class="sec">
+        <section style="background-color: var(--back${i+2})" class="sec">
             <section class="card2">
                 <span class="btn1" onclick="window.open('/${arr1[i][0]}', '_self')">Open</span>
                 <section class="text2" onclick="window.open('/${arr1[i][0]}', '_self')">${arr1[i][1]}</section>

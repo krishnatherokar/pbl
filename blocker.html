@@ -178,7 +178,7 @@
 
     </head>
     <body>
-        <section id="blockA"><section id="blockChild"><section id="alertH"></section></section></section>
+        <section id="blockA" onclick="hideAlert()"><section id="blockChild"><section id="alertH"></section></section></section>
         <section id="topnav1">
             <section id="menu1" onclick="sidenavF()"></section>
             <section id="cross1" onclick="exitNav()"></section>
@@ -282,6 +282,10 @@ function showAlert(text, action){
             getId('alertH').classList.remove("redAlert");
             getId('alertH').classList.add("greenAlert");
         }
+}
+
+function hideAlert(){
+    getId('blockA').style.setProperty('margin', '-400px 0 0 0');
 }
 
 function webListF(num){
