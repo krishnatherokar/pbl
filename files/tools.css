@@ -28,12 +28,14 @@ body {
 
     --transP1: #ededed30;
 
-    --red1: #ff1414;
-    --red2: #ff141430;
-    --blue1: #0f4bff;
+    --red1: #FF4433;
+    --red2: #FF443330;
+    --blue1: #4169E1;
     --green1: #32CD32;
     --green2: #32CD3230;
     --yellow1: #ffee00;
+
+    --test1: #3fd170;
 }
 
 ::-webkit-scrollbar {

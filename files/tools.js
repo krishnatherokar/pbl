@@ -28,9 +28,9 @@ if(modeStat == null || modeStat == undefined){
 
 mode1.addEventListener("click", modeF)
 
-arrClr = ['transP1', 'white1', 'white2', 'dark1', 'dark2', 'dark3', 'dark4'];
-arrHex1 = ['ededed30', 'f8f9fa', 'e9ecef', '212529', 'a7a7a7', '343a40', '495057'];
-arrHex2 = ['3d3d3d30', '212529', '343a40', 'f8f9fa', 'a7a7a7', 'e9ecef', 'dee2e6'];
+arrClr = ['transP1', 'white1', 'white2', 'dark1', 'dark2', 'dark3', 'dark4', 'blue1', 'green1'];
+arrHex1 = ['ededed30', 'f8f9fa', 'e9ecef', '212529', 'a7a7a7', '343a40', '495057', '4169E1', '32CD32'];
+arrHex2 = ['3d3d3d30', '212529', '343a40', 'f8f9fa', 'a7a7a7', 'e9ecef', 'dee2e6', '4682B4', '3fd170'];
 
 function modeF(){
     if (modeStat==1){

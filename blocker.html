@@ -310,7 +310,7 @@ function deleteMode1(num){
     modeNum = Number(localStorage.getItem("modeNum"));
     num3=num+1;
     tempModeAc = Number(JSON.parse(localStorage.getItem('mode'+num3))[1]);
-    id1 = tempModeAc = JSON.parse(localStorage.getItem('mode'+num3))[3];
+    id1 = JSON.parse(localStorage.getItem('mode'+num3))[3];
     localStorage.removeItem("mode"+num3);
     localStorage.setItem("modeNum", modeNum-1);
     for(i = num3+1; i <= modeNum; i++){
@@ -401,7 +401,7 @@ function blockWeb1(list, id, action){
         if(action=='B'){
             showAlert("Websites Blocked", 'B')
         } else {
-            showAlert("Websites Unlocked", 'UB')
+            showAlert("Websites Unblocked", 'UB')
         }
         getId('webList3').value = getId(list).innerHTML;
         getId('listHold').innerHTML='';
