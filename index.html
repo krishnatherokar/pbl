@@ -69,7 +69,7 @@ body {
 .card2 {
     margin: 70px auto;
     max-width: 500px;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 .card2 section {
@@ -119,6 +119,7 @@ body {
     margin: -10px 0 10px 10px;
     color: var(--blue1);
     cursor: pointer;
+    z-index: 2;
 }
 
 .sec {
@@ -131,6 +132,15 @@ body {
 
 #secOutro {
     background-color: var(--back0);
+}
+
+.card2 svg {
+    float: right;
+    margin: 50px -80px 4px 4px;
+}
+
+#svgAdd1 svg {
+    margin: -20px 20px 4px 4px;
 }
 
 </style>
@@ -149,12 +159,7 @@ body {
         <section id="mainSec"></section>
 
         <section class="sec" style="background-color: var(--back5);">
-            <section class="card2">
-                <ul>
-                    <li>
-                        Added dark & light mode in every tool for more customisation. Just click the sun icon at top right corner after clicking 'Open'.
-                    </li>
-                </ul>
+            <section id="svgAdd1" class="card2">
             </section>
         </section>
 
@@ -167,6 +172,7 @@ body {
             </section>
         </section>
 
+<script src="files/svg.js"></script>
 <script>
 
 function getId(id){
@@ -199,19 +205,22 @@ arr1 = [
     ['This tool is useful to block access to unwanted websites from your computer.',
     'It contains \'modes\' to customize the list of websites you want to block or unblock at a time.',
     'Generates unique id for each mode.',
-    'It stores data in browser cookies so that the modes you create will be saved even if you refresh the website.']
+    'It stores data in browser cookies so that the modes you create will be saved even if you refresh the website.'],
+    svgWeb
     ],
     //['encrypter', 'Text encrypter',
     ['pbl/encrypter.html', 'Text Encrypter',
     ['We can input a simple text to get it\'s encrypted form and also a key to decrypt it.',
-    'Without the key, the encrypted text cannot be decrypted.']
+    'Without the key, the encrypted text cannot be decrypted.'],
+    svgSafe
     ],
     //['STencrypter', 'Steganography',
     ['pbl/stgraphy.html', 'Steganography',
     ['With this tool, we can store some text inside an image file.',
     'It will be protected by a password.',
     'To access the hidden text, you need to select exact file or provide it\'s path and password.',
-    'It also shows file details.']
+    'It also shows file details.'],
+    svgImg
     ]
 ];
 
@@ -224,7 +233,8 @@ for(i=0; i<arr1.length; i++){
         <section style="background-color: var(--back${i+2})" class="sec">
             <section class="card2">
                 <span class="btn1" onclick="window.open('/${arr1[i][0]}', '_self')">Open</span>
-                <section class="text2" onclick="window.open('/${arr1[i][0]}', '_self')">${arr1[i][1]}</section>
+                ${arr1[i][3]}
+                <section class="text2">${arr1[i][1]}</section>
                 <section>
                     <ul>${pTemp}</ul>
                 </section>
@@ -249,6 +259,15 @@ for(j=0; j<arr2.length; j++){
                     ${arr2[j][2]}
         </section>`
 }
+
+getId("svgAdd1").innerHTML=`
+    ${svgDark}
+    <ul>
+        <li>
+            Added dark & light mode in every tool for more customisation. Just click the sun icon at top right corner after clicking 'Open'.
+        </li>
+    </ul>
+`;
 
 </script>
     </body>

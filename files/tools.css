@@ -16,26 +16,6 @@ body {
 
 :root {
     --sec1: .6s;
-    --white1: #f8f9fa;
-    --white2: #e9ecef;
-    --dark1: #212529;
-    --dark2: #a7a7a7;
-    --dark3: #343a40;
-    --dark4: #495057;
-
-    --circle0: #9e9e9e;
-    --circle1: #00ff37;
-
-    --transP1: #ededed30;
-
-    --red1: #FF4433;
-    --red2: #FF443330;
-    --blue1: #4169E1;
-    --green1: #32CD32;
-    --green2: #32CD3230;
-    --yellow1: #ffee00;
-
-    --test1: #3fd170;
 }
 
 ::-webkit-scrollbar {
@@ -149,24 +129,24 @@ body {
     border-radius: 4px;
 }
 
-@media only screen and (min-width: 600px){
-    #sidediv {
-        width: 40%;
-    }
-
-    #dummydiv {
-        width: 60%;
-    }
+@media only screen and (max-width: 400px){
+    #sidediv {width: 70%}
+    #dummydiv {width: 30%}
 }
 
-@media only screen and (max-width: 600px){
-    #sidediv {
-        width: 70%;
-    }
-    
-    #dummydiv {
-        width: 30%;
-    }
+@media only screen and (min-width: 400px) and (max-width: 700px){
+    #sidediv {width: 50%}
+    #dummydiv {width: 50%}
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1000px){
+    #sidediv {width: 40%}
+    #dummydiv {width: 60%}
+}
+
+@media only screen and (min-width: 1000px){
+    #sidediv {width: 25%}
+    #dummydiv {width: 75%}
 }
 
 #sidediv {

@@ -99,13 +99,13 @@
 }
 
 #detailsBtn button {
-    padding: 10px 30px;
+    padding: 10px 15px;
     font-size: 16px;
 }
 
 #btnHold button {
     margin: 0 10px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-size: 16px;
 }
 
@@ -131,6 +131,8 @@
 #webList .redclr {
     float: right;
     cursor: pointer;
+    margin: -16px -16px 0 0;
+    padding: 10px;
 }
 
 #listHold {
@@ -174,6 +176,10 @@
     background-color: var(--green2);
 }
 
+.redbtn svg {
+    margin: 0 0 -6px 0;
+}
+
 </style>
 
     </head>
@@ -194,7 +200,9 @@
             
             <section id="webList">
                 <span class="white2clr">List of websites added:</span>
-                <span title="Clear the list added" class="redclr" onclick="clearForm()">Clear</span><br>
+                <span title="Clear the list added" class="redclr" onclick="clearForm()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                </span><br>
                 <section id="listHold"></section>
                 <section id="btnHold" class="flex">
                     <button class="redbtn" onclick="blockWeb1('listHold', 'NaN', 'B')">Block</button><button class="bluebtn" onclick="createMode1()">Create New Mode</button>
@@ -242,13 +250,15 @@ webList2 = getId('webList2');
 detailsBtn = getId('detailsBtn');
 closeDiv1 = getId('closeDiv1');
 
+svgTrash = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>`;
+
 function svgDot(num){
     return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--circle${num})" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dot"><circle cx="12.1" cy="12.1" r="1"/></svg>`
 }
 
 modeNum = Number(localStorage.getItem("modeNum"));
 
-if(modeNum == null || modeNum == undefined || modeNum == 0){
+if(modeNum == (null || undefined || 0)){
     localStorage.setItem("modeNum", 1);
     localStorage.setItem('mode1', JSON.stringify(['Study Mode', 0, 'instagram.com<br>facebook.com<br>', 'id2525']))
     modeNum = 1;
@@ -368,7 +378,7 @@ function showDetails1(num){
     activeSt = arrMode[num][1];
     $('#modeDetails').fadeIn();
     detailsBtn.innerHTML = `<button class="transbtn" onclick="switchB(${num}, ${activeSt})">${butArr[activeSt]}</button>
-    <button class="redbtn" onclick="deleteMode1(${num})">Delete</button>`;
+    <button class="redbtn" onclick="deleteMode1(${num})">${svgTrash} Delete</button>`;
     modeName.innerHTML = arrMode[num][0];
     webList2.innerHTML = webListF(num);
     closeDiv1.innerHTML = svgCross2;
