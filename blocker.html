@@ -35,6 +35,11 @@
     cursor: pointer;
 }
 
+#modeList section:active {
+    transform: scale(96%);
+    transition: .2s all;
+}
+
 #modeList svg {
     margin: 0 -2px -4px 2px;
 }
@@ -49,9 +54,15 @@
     width: 20%;
 }
 
+#modeBack {
+    z-index: 5;
+    padding: 100vh 100vw;
+    background: transparent;
+    position: fixed;
+}
+
 #modeDetails {
     z-index: 4;
-    padding: 20px;
     backdrop-filter: blur(4px);
     background-color: var(--transP1);
     display: none;
@@ -63,9 +74,30 @@
     padding: 10px;
 }
 
+#detailsCover {
+    display: flex;
+    position: fixed;
+    margin: 0;
+    top: 20vh;
+    width: 100%;
+    z-index: 6;
+}
+
+@media only screen and (max-width: 600px){
+    #detailsHold {min-width: 80vw}
+}
+
+@media only screen and (min-width: 600px){
+    #detailsHold {min-width: 500px}
+}
+
+.flexE {
+    width: 100%;
+}
+
 #detailsHold {
     max-width: 500px;
-    margin: 20vh auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: var(--dark1);
     border-radius: 4px;
@@ -123,7 +155,7 @@
 }
 
 #webList2 {
-    background-color: var(--dark4);
+    background-color: var(--dark3);
     max-height: 100px;
     overflow-y: scroll;
 }
@@ -140,8 +172,8 @@
     font-size: 16px;
     color: var(--white2);
     max-height: 200px;
+    padding: 2px 10px;
     overflow-y: scroll;
-    border-radius: 4px;
 }
 
 #blockA {
@@ -151,7 +183,7 @@
     left: 0;
     margin: -100px 0 0 0;
     transition: 1s all;
-    z-index: 5;
+    z-index: 7;
 }
 
 #blockChild {
@@ -220,11 +252,16 @@
         </section>
 
         <section id="modeDetails" class="fixedDiv">
-            <section id="detailsHold">
+            <section id="modeBack" onclick="hideDetails()"></section>
+            <section id="detailsCover">
+                <section class="flexE" onclick="hideDetails()"></section>
+                <section id="detailsHold">
                 <section  id="modeName"></section>
                 <section id="closeDiv1" onclick="hideDetails()"></section>
                 <section id="webList2"></section>
                 <section id="detailsBtn" class="flex"></section>
+                </section>
+                <section class="flexE" onclick="hideDetails()"></section>
             </section>
         </section>
 

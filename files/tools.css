@@ -187,6 +187,16 @@ button, svg {
     cursor: pointer;
 }
 
+svg:active {
+    transform: scale(80%);
+    transition: .2s all;
+}
+
+button:active {
+    transform: scale(96%);
+    transition: .2s all;
+}
+
 input:focus {
     outline: 0;
 }
