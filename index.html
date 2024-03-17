@@ -261,8 +261,21 @@ getId("svgAdd1").innerHTML=`
         <li>
             Added dark & light mode in every tool for more customisation. Just click the sun icon at top right corner after clicking 'Open'.
         </li>
+        <li onclick="showRef()">
+            Ref
+        </li>
     </ul>
 `;
+
+function showRef(){
+    win1 = window.open("", "Ref", "width=500,height=300");
+    win1.document.write(`
+    Illustration svg credit: https://undraw.co/illustrations<br>
+    Icons svg credit: https://lucide.dev/icons/<br>
+    Typewriter credit: https://safi.me.uk/typewriterjs/<br>
+    Url checking function credit: https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url<br>
+    `);
+}
 
 </script>
     </body>
