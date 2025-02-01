@@ -196,26 +196,32 @@ try {
 } catch (error) {}
 
 arr1 = [
-    //['blocker', 'Website blocker',
+    //['blocker', 'Website Blocker',
     ['pbl/blocker.html', 'Website Blocker',
-    ['This tool is useful to block access to unwanted websites from your computer.',
-    'It contains \'modes\' to customize the list of websites you want to block or unblock at a time.',
-    'Generates unique id for each mode.',
-    'It stores data in browser cookies so that the modes you create will be saved even if you refresh the website.'],
+    [
+        'This tool helps block access to unwanted websites on your computer.',
+        'It offers different "modes" to customize which websites you want to block or unblock at any time.',
+        'Each mode is assigned a unique ID for easy management.',
+        'The tool saves your settings in browser localstorage, ensuring that the modes you create persist even after refreshing the page.'
+    ],
     svgWeb
     ],
-    //['encrypter', 'Text encrypter',
+    //['encrypter', 'Text Encrypter',
     ['pbl/encrypter.html', 'Text Encrypter',
-    ['We can input a simple text to get it\'s encrypted form and also a key to decrypt it.',
-    'Without the key, the encrypted text cannot be decrypted.'],
+    [
+        'This tool allows you to input text and generate its encrypted version, with the option to use a key for decryption.',
+        'Without the key, the encrypted text cannot be decrypted, ensuring privacy and security.'
+    ],
     svgSafe
     ],
     //['STencrypter', 'Steganography',
     ['pbl/stgraphy.html', 'Steganography',
-    ['With this tool, we can store some text inside an image file.',
-    'It will be protected by a password.',
-    'To access the hidden text, you need to select exact file or provide it\'s path and password.',
-    'It also shows file details.'],
+    [
+        'This tool enables you to hide text within an image file.',
+        'The hidden text is secured with a password.',
+        'To retrieve the concealed text, you must select the exact file or provide its path along with the password.',
+        'It also displays detailed information about the image file.'
+    ],
     svgImg
     ]
 ];
@@ -238,12 +244,12 @@ for(i=0; i<arr1.length; i++){
 }
 
 arr2 = [
-    ['Krishna Therokar', '12', 'Frontend design & logic'],
-    ['Jashn Wahi', '21', 'Backend logic & file handling'],
     ['Rutuja Patil', '09', ''],
     ['Angad Bhokare', '11', ''],
+    ['Krishna Therokar', '12', 'Frontend design & logic'],
     ['Prachi Patharvat', '15', ''],
-    ['Pratiksha Waghmare', '16', '']
+    ['Pratiksha Waghmare', '16', ''],
+    ['Jashn Wahi', '21', 'Backend logic & file handling']
 ];
 
 for(j=0; j<arr2.length; j++){
@@ -259,7 +265,7 @@ getId("svgAdd1").innerHTML=`
     ${svgDark}
     <ul>
         <li>
-            Added dark & light mode in every tool for more customisation. Just click the sun icon at top right corner after clicking 'Open'.
+            Dark and light modes have been added to each tool for enhanced customization. Simply click the sun icon in the top-right corner after selecting 'Open' to switch between modes.
         </li>
         <li onclick="showRef()">
             Ref
